@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIA GPU 12 — Consumer &amp; Workstation Products: Lineage, Naming, EULA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #0d1117;
+            --bg-code: #161b22;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #76B900;
+            --accent-dim: #76B90044;
+            --accent-glow: #76B90033;
+            --border: #21262d;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --font-body: 'Inter', sans-serif;
+            --max-width: 900px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 17px;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ── Header ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .series-label {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .accent {
+            color: var(--accent);
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        /* ── Tag Pills ── */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            background: var(--accent-dim);
+            white-space: nowrap;
+        }
+
+        /* ── Pipeline Flow Bar ── */
+        .pipeline {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+            max-width: var(--max-width);
+        }
+
+        .pipeline-step {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 0.3rem 0.7rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .pipeline-arrow {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /* ── Slides ── */
+        .slide {
+            min-height: 100vh;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-number {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 700;
+            color: var(--accent-dim);
+            position: absolute;
+            top: 2rem;
+            right: 1.5rem;
+            line-height: 1;
+            user-select: none;
+        }
+
+        .slide h2 {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            line-height: 1.25;
+        }
+
+        .slide h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .slide p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .slide p strong {
+            color: var(--text-primary);
+        }
+
+        .slide ul, .slide ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .slide li {
+            margin-bottom: 0.4rem;
+        }
+
+        .slide li strong {
+            color: var(--text-primary);
+        }
+
+        /* ── Code Blocks ── */
+        .code-block {
+            background: var(--bg-code);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin: 1.25rem 0;
+            overflow: hidden;
+        }
+
+        .code-header {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            background: rgba(118, 185, 0, 0.08);
+            padding: 0.4rem 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .code-block pre {
+            margin: 0;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        .code-block code {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #c9d1d9;
+        }
+
+        /* Syntax highlighting (manual) */
+        .kw { color: #ff7b72; }
+        .fn { color: #d2a8ff; }
+        .str { color: #a5d6ff; }
+        .cm { color: #8b949e; font-style: italic; }
+        .num { color: #79c0ff; }
+        .type { color: #ffa657; }
+        .dir { color: #ff7b72; }
+        .mac { color: #ffa657; }
+
+        /* ── Tables ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1.25rem 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: var(--bg-code);
+            color: var(--accent);
+            font-weight: 600;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-family: var(--font-display);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) td {
+            background: rgba(13, 17, 23, 0.5);
+        }
+
+        /* ── Diagrams ── */
+        .diagram-flow {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .diagram-box {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-code);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .diagram-box.accent {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(118, 185, 0, 0.08);
+        }
+
+        .diagram-box.dim {
+            color: var(--text-secondary);
+            border-color: var(--border);
+        }
+
+        .diagram-arrow {
+            color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        /* Vertical flow diagrams */
+        .diagram-vertical {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .diagram-vertical .diagram-arrow {
+            font-size: 1.1rem;
+        }
+
+        /* Nested hierarchy diagram */
+        .hierarchy {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .hierarchy-level {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hierarchy-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .hierarchy-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+        }
+
+        .hierarchy-item {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            background: var(--bg-code);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .hierarchy-item.accent {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(118, 185, 0, 0.08);
+        }
+
+        /* Grid diagram */
+        .diagram-grid {
+            display: grid;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .diagram-grid.cols-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .diagram-grid.cols-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .diagram-panel {
+            padding: 1rem;
+            background: var(--bg-code);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .diagram-panel.accent-border {
+            border-left: 3px solid var(--accent);
+        }
+
+        .diagram-panel h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .diagram-panel p, .diagram-panel ul {
+            font-size: 0.85rem;
+        }
+
+        /* ── Callout Boxes ── */
+        .callout {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+        }
+
+        .callout .callout-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.3rem;
+        }
+
+        /* ── Tier Visual ── */
+        .tier-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .tier-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .tier-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            min-width: 90px;
+            text-align: right;
+        }
+
+        .tier-fill {
+            height: 32px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            white-space: nowrap;
+            transition: width 0.6s ease;
+        }
+
+        .tier-cost {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            min-width: 70px;
+        }
+
+        /* ── Contents list ── */
+        .contents-list {
+            list-style: none;
+            padding-left: 0;
+            counter-reset: contents;
+        }
+
+        .contents-list li {
+            counter-increment: contents;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contents-list li:last-child {
+            border-bottom: none;
+        }
+
+        .contents-list li::before {
+            content: counter(contents, decimal-leading-zero);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            min-width: 2rem;
+        }
+
+        .contents-list a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contents-list a:hover {
+            color: var(--accent);
+        }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .slide {
+                padding: 3rem 1rem;
+                min-height: auto;
+            }
+
+            .slide-number {
+                font-size: 3rem;
+                top: 1.5rem;
+                right: 1rem;
+            }
+
+            .slide h2 {
+                font-size: 1.5rem;
+            }
+
+            .diagram-grid.cols-2,
+            .diagram-grid.cols-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .pipeline {
+                gap: 0.15rem;
+            }
+
+            .pipeline-step {
+                font-size: 0.6rem;
+                padding: 0.2rem 0.4rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            table {
+                font-size: 0.78rem;
+            }
+
+            .tier-label {
+                min-width: 60px;
+                font-size: 0.65rem;
+            }
+
+            .tier-fill {
+                font-size: 0.6rem;
+                height: 26px;
+            }
+        }
+
+        /* ── Interactive controls (added for Local LLM series) ── */
+        .control-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
+        }
+        .control-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .control-row label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            min-width: 180px;
+        }
+        .control-row input[type="range"] {
+            flex: 1;
+            min-width: 160px;
+            accent-color: var(--accent);
+        }
+        .control-row input[type="number"],
+        .control-row select {
+            background: var(--bg-code);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            border-radius: 4px;
+            padding: 0.3rem 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+        }
+        .control-row .val {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            min-width: 80px;
+            text-align: right;
+        }
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 0.4rem 0.9rem;
+            background: var(--accent-dim);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.15s ease;
+        }
+        .btn:hover { background: rgba(118, 185, 0, 0.2); }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .btn.secondary {
+            background: var(--bg-code);
+            color: var(--text-secondary);
+            border-color: var(--border);
+        }
+        .result-box {
+            background: var(--bg-code);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 4px;
+            padding: 0.75rem 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            margin-top: 0.75rem;
+        }
+        .result-box .line-label { color: var(--text-secondary); }
+        .result-box .line-val   { color: var(--accent); font-weight: 600; }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+        .metric {
+            background: var(--bg-code);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.6rem 0.8rem;
+            text-align: center;
+        }
+        .metric .metric-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .metric .metric-value {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 0.2rem;
+        }
+
+        /* Canvas / SVG containers */
+        .canvas-wrap {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.25rem 0;
+            overflow-x: auto;
+        }
+        .canvas-wrap canvas,
+        .canvas-wrap svg {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+
+        /* Small inline badge */
+        .badge {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            padding: 0.1rem 0.45rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            vertical-align: middle;
+            margin-left: 0.3rem;
+        }
+        .badge.ok    { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+        .badge.warn  { border-color: #ffa657; color: #ffa657; background: rgba(255,166,87,0.08); }
+        .badge.bad   { border-color: #ff7b72; color: #ff7b72; background: rgba(255,123,114,0.08); }
+
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="series-label">NVIDIA GPU Architectures Series — Presentation 12</div>
+    <h1><span class="accent">GeForce, RTX Pro, Tesla &amp; A/H/L/B</span> &mdash; Decoding NVIDIA's Product Lineup</h1>
+    <p class="subtitle">Why is the L40S a datacenter card and the RTX 4090 a 'gaming' card when both are AD102? Why does the EULA matter? What replaced Quadro and Tesla? Walk through every NVIDIA product family — past and present — and the rules that govern where each card can legally run.</p>
+
+    <div class="tags">
+        <span class="tag">GeForce</span><span class="tag">RTX Pro</span><span class="tag">Tesla</span>
+        <span class="tag">T4</span><span class="tag">A100</span><span class="tag">H100</span>
+        <span class="tag">L40S</span><span class="tag">Jetson</span><span class="tag">EULA</span>
+        <span class="tag">OEM</span>
+    </div>
+
+    <div class="pipeline">
+        <span class="pipeline-step">GeForce</span>
+        <span class="pipeline-arrow">&rarr;</span>
+        <span class="pipeline-step">Quadro</span>
+        <span class="pipeline-arrow">&rarr;</span>
+        <span class="pipeline-step">Tesla</span>
+        <span class="pipeline-arrow">&rarr;</span>
+        <span class="pipeline-step">RTX Pro</span>
+        <span class="pipeline-arrow">&rarr;</span>
+        <span class="pipeline-step">A/H/B/L</span>
+        <span class="pipeline-arrow">&rarr;</span>
+        <span class="pipeline-step">Jetson</span>
+        <span class="pipeline-arrow">&rarr;</span>
+        <span class="pipeline-step">Tegra</span>
+    </div>
+</header>
+
+<section class="slide" id="slide-00">
+    <div class="slide-number">00</div>
+    <h2>Topics We'll Cover</h2>
+    <p>An end-to-end map of NVIDIA's product lineup &mdash; the names, the silicon shared between them, the licence boundaries, and how to pick the right SKU for any role.</p>
+    <ul class="contents-list">
+        <li><a href="#slide-01">The Three Pillars Today</a></li>
+        <li><a href="#slide-02">The Naming System Decoded</a></li>
+        <li><a href="#slide-03">GeForce &mdash; Gaming First, AI by Accident</a></li>
+        <li><a href="#slide-04">RTX Pro &mdash; The Workstation Line</a></li>
+        <li><a href="#slide-05">Datacenter &mdash; A/H/L/B Series</a></li>
+        <li><a href="#slide-06">The China-Export Variants</a></li>
+        <li><a href="#slide-07">Jetson &amp; Tegra &mdash; Edge AI Family</a></li>
+        <li><a href="#slide-08">The EULA &mdash; What You Can and Can't Do</a></li>
+        <li><a href="#slide-09">The "Same Die, Different Card" Phenomenon</a></li>
+        <li><a href="#slide-10">Driver Branches &amp; Compute Capability</a></li>
+        <li><a href="#slide-11">Interactive: Card-to-Use-Case Mapper</a></li>
+    </ul>
+</section>
+
+<section class="slide" id="slide-01">
+    <div class="slide-number">01</div>
+    <h2>The Three Pillars Today</h2>
+    <p>NVIDIA today sells GPU silicon under three commercial pillars. The same physical die can appear in all three with different firmware, driver, BIOS, board layout, and licence &mdash; the differences are real and they matter.</p>
+
+    <div class="diagram-grid cols-3">
+        <div class="diagram-panel accent-border">
+            <h4>Consumer (GeForce RTX)</h4>
+            <p><strong>Gaming-first.</strong> RTX 30/40/50 series. Air-cooled axial fans, display outputs (HDMI + DP), GeForce Experience, ShadowPlay, DLSS, GeForce Now cloud. <em>No</em> ECC, <em>no</em> SR-IOV, <em>no</em> MIG, <em>no</em> certified ISV drivers. The GeForce Driver EULA explicitly forbids datacenter deployment.</p>
+        </div>
+        <div class="diagram-panel accent-border">
+            <h4>Workstation (RTX Pro)</h4>
+            <p>Formerly <strong>Quadro</strong> (1999&ndash;2020), then <strong>"NVIDIA RTX"</strong> (2020&ndash;2023, e.g. RTX A6000, RTX 6000 Ada), now <strong>"RTX Pro"</strong> (2024+). ECC GDDR, certified ISV drivers (Autodesk, SolidWorks, Adobe, ANSYS, DaVinci), full FP64 path on professional models, datacenter-licensed. Often offered with NVLink bridges.</p>
+        </div>
+        <div class="diagram-panel accent-border">
+            <h4>Datacenter (A/H/L/B)</h4>
+            <p>Formerly <strong>Tesla</strong> branding (dropped 2020 to avoid confusion with the car company). Today: A100/A40/A30/A10/A2, H100/H200, L40/L40S/L4, B100/B200/B300. Bare PCIe cards or HGX/SXM baseboards, passive cooling, ECC mandatory, no display outputs, top-tier NVLink, MIG on the 100-tier, full datacenter EULA.</p>
+        </div>
+    </div>
+
+    <h3>What separates them physically</h3>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Feature</th><th>GeForce</th><th>RTX Pro</th><th>Datacenter</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Display outputs</td><td>3&ndash;4</td><td>4 DP (mini)</td><td>None</td></tr>
+                <tr><td>Cooling</td><td>Axial fans</td><td>Blower / axial</td><td>Passive (chassis airflow)</td></tr>
+                <tr><td>Form factor</td><td>2&ndash;3.5 slot</td><td>2-slot blower</td><td>2-slot FHFL or SXM module</td></tr>
+                <tr><td>ECC</td><td>No</td><td>Yes (GDDR ECC)</td><td>Yes (mandatory)</td></tr>
+                <tr><td>NVLink</td><td>3090 only (last consumer)</td><td>Bridge on some Pro</td><td>NVSwitch fabric (SXM)</td></tr>
+                <tr><td>MIG</td><td>No</td><td>No</td><td>100-tier (A100, H100, B200)</td></tr>
+                <tr><td>SR-IOV / vGPU</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+                <tr><td>EULA</td><td>Consumer (no DC)</td><td>Workstation/DC OK</td><td>Datacenter OK</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">The hidden axis</div>
+        <p>The most important difference between the three pillars isn't silicon &mdash; it's the <strong>BIOS strap</strong> and the <strong>driver branch</strong>. The same AD102 die in a 4090, RTX 6000 Ada, and L40S has the same SMs and the same Tensor Cores. What changes is which features the firmware unlocks (ECC, vGPU, MIG, NVLink), how the driver enforces the licence, and whether the board ships with display outputs and consumer cooling.</p>
+    </div>
+</section>
+
+<section class="slide" id="slide-02">
+    <div class="slide-number">02</div>
+    <h2>The Naming System Decoded</h2>
+    <p>Datacenter SKUs follow a strict letter-and-number scheme. Once you know the rules, the part number tells you the architecture, the tier, and whether it's a China-export variant.</p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Arch</th><th>Die prefix</th><th>Era</th><th>Datacenter SKUs</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Pascal</strong></td><td>GP</td><td>2016&ndash;17</td><td>P100, P40, P4</td><td>First "Tesla" cards aimed squarely at deep learning. P100 was first HBM2.</td></tr>
+                <tr><td><strong>Volta</strong></td><td>GV</td><td>2017&ndash;18</td><td>V100</td><td>First Tensor Cores. SXM2 form factor, NVLink 2.</td></tr>
+                <tr><td><strong>Turing</strong></td><td>TU</td><td>2018&ndash;19</td><td>T4 (only major DC SKU)</td><td>70 W, single-slot &mdash; mass-deployed inference card.</td></tr>
+                <tr><td><strong>Ampere</strong></td><td>GA</td><td>2020&ndash;21</td><td>A100, A40, A30, A10, A2</td><td>Full inference-to-training span; A100 introduced MIG.</td></tr>
+                <tr><td><strong>Ada Lovelace</strong></td><td>AD</td><td>2022&ndash;23</td><td>L40, L40S, L4</td><td><em>"L"</em> replaces <em>"A"</em> mid-arch; reflects Lovelace branding.</td></tr>
+                <tr><td><strong>Hopper</strong></td><td>GH</td><td>2023&ndash;24</td><td>H100, H200, H800, H20</td><td>FP8 + Transformer Engine. H800/H20 are China-only.</td></tr>
+                <tr><td><strong>Blackwell</strong></td><td>GB</td><td>2025&ndash;26</td><td>B100, B200, B300, GB200</td><td>Dual-die package. FP4 (MX-FP4). NVL72 rack as a unit.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>The numeric tier code</h3>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Suffix</th><th>Role</th><th>Examples</th><th>Typical TDP</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>100</strong></td><td>Top compute &mdash; HBM, NVLink, MIG, training-class</td><td>P100, V100, A100, H100, B100, B200</td><td>300&ndash;1000 W</td></tr>
+                <tr><td><strong>40</strong></td><td>Cost-optimised inference / visualisation &mdash; GDDR, no MIG</td><td>P40, A40, L40, L40S</td><td>250&ndash;350 W</td></tr>
+                <tr><td><strong>30</strong></td><td>Mid-range inference &mdash; PCIe-only, GDDR ECC</td><td>A30</td><td>165 W</td></tr>
+                <tr><td><strong>10</strong></td><td>Single-slot inference</td><td>A10</td><td>150 W</td></tr>
+                <tr><td><strong>4</strong></td><td>Low-power inference, single-slot, 70 W</td><td>T4, L4</td><td>70&ndash;72 W</td></tr>
+                <tr><td><strong>2</strong></td><td>Edge / low-profile, &lt; 60 W</td><td>A2</td><td>40&ndash;60 W</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">China-export digit '8'</div>
+        <p>Sales to China face US export controls (October 2022 and October 2023 BIS rules) capping FLOPS-per-package and interconnect bandwidth. NVIDIA's response was to add an '<strong>8</strong>' suffix &mdash; <code>A800</code> (an A100 with NVLink throttled), <code>H800</code> (H100 with NVLink throttled), and the further-cut <code>H20</code>. The naming itself is a regulatory artefact: '8' = China-tuned variant.</p>
+    </div>
+
+    <h3>Reading a model number</h3>
+    <div class="diagram-flow">
+        <span class="diagram-box accent">H</span>
+        <span class="diagram-arrow">+</span>
+        <span class="diagram-box">100</span>
+        <span class="diagram-arrow">=</span>
+        <span class="diagram-box dim">Hopper top-tier (HBM3, NVLink 4, MIG)</span>
+    </div>
+    <div class="diagram-flow">
+        <span class="diagram-box accent">L</span>
+        <span class="diagram-arrow">+</span>
+        <span class="diagram-box">40</span>
+        <span class="diagram-arrow">+</span>
+        <span class="diagram-box">S</span>
+        <span class="diagram-arrow">=</span>
+        <span class="diagram-box dim">Lovelace (Ada) cost-tier with FP8 'Server' bin (L40S)</span>
+    </div>
+    <div class="diagram-flow">
+        <span class="diagram-box accent">A</span>
+        <span class="diagram-arrow">+</span>
+        <span class="diagram-box">800</span>
+        <span class="diagram-arrow">=</span>
+        <span class="diagram-box dim">Ampere top-tier, China export-throttled NVLink (A800)</span>
+    </div>
+</section>
+
+<section class="slide" id="slide-03">
+    <div class="slide-number">03</div>
+    <h2>GeForce &mdash; Gaming First, AI by Accident</h2>
+    <p>GeForce has been NVIDIA's consumer line since 1999. It's marketed at gamers, sold through Best Buy and Amazon, and runs the GeForce driver branch. The fact that the same silicon is wildly useful for LLM inference is a side effect &mdash; one that NVIDIA accepts but does not encourage.</p>
+
+    <h3>Lineage of the flagship</h3>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Generation</th><th>Top SKU</th><th>Arch</th><th>VRAM</th><th>Why it mattered for AI</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>2016</td><td>GTX 1080 Ti</td><td>Pascal (GP102)</td><td>11 GB GDDR5X</td><td>First "everyone has one" CUDA card; FP32-only.</td></tr>
+                <tr><td>2018</td><td>RTX 2080 Ti</td><td>Turing (TU102)</td><td>11 GB GDDR6</td><td>First RT cores and first <strong>Tensor Cores</strong> in consumer hardware.</td></tr>
+                <tr><td>2020</td><td>RTX 3090 / 3090 Ti</td><td>Ampere (GA102)</td><td>24 GB GDDR6X</td><td>24 GB became the de-facto LLM hobbyist card; last consumer NVLink bridge.</td></tr>
+                <tr><td>2022</td><td>RTX 4090</td><td>Ada (AD102)</td><td>24 GB GDDR6X</td><td>~2&times; perf/W of 3090. <em>NVLink removed</em>; multi-GPU is PCIe-only.</td></tr>
+                <tr><td>2025</td><td>RTX 5090</td><td>Blackwell (GB202)</td><td>32 GB GDDR7</td><td>~1.8&times; bandwidth of 4090; native FP4 tensor cores.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>The tier grid &mdash; every Ada/Blackwell SKU</h3>
+    <div class="hierarchy">
+        <div class="hierarchy-level">
+            <div class="hierarchy-label">90 (top)</div>
+            <div class="hierarchy-items">
+                <span class="hierarchy-item accent">RTX 4090 24 GB</span>
+                <span class="hierarchy-item accent">RTX 5090 32 GB</span>
+            </div>
+        </div>
+        <div class="hierarchy-level">
+            <div class="hierarchy-label">80 (enthusiast)</div>
+            <div class="hierarchy-items">
+                <span class="hierarchy-item">RTX 4080 16 GB</span>
+                <span class="hierarchy-item">RTX 4080 Super 16 GB</span>
+                <span class="hierarchy-item">RTX 5080 16 GB</span>
+            </div>
+        </div>
+        <div class="hierarchy-level">
+            <div class="hierarchy-label">70 (mid)</div>
+            <div class="hierarchy-items">
+                <span class="hierarchy-item">RTX 4070 12 GB</span>
+                <span class="hierarchy-item">RTX 4070 Ti 12 GB</span>
+                <span class="hierarchy-item">RTX 4070 Ti Super 16 GB</span>
+                <span class="hierarchy-item">RTX 5070 / 5070 Ti</span>
+            </div>
+        </div>
+        <div class="hierarchy-level">
+            <div class="hierarchy-label">60 (entry)</div>
+            <div class="hierarchy-items">
+                <span class="hierarchy-item">RTX 4060 8 GB</span>
+                <span class="hierarchy-item">RTX 4060 Ti 8/16 GB</span>
+                <span class="hierarchy-item">RTX 5060 / 5060 Ti</span>
+            </div>
+        </div>
+        <div class="hierarchy-level">
+            <div class="hierarchy-label">50 (budget)</div>
+            <div class="hierarchy-items">
+                <span class="hierarchy-item">RTX 4050 (mobile)</span>
+                <span class="hierarchy-item">RTX 5050 (mobile)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">What ships in the box</div>
+        <p>Every GeForce card ships with the consumer driver branch (R5xx/R6xx New Feature Branch), GeForce Experience for game-ready optimisations, ShadowPlay capture, and the GeForce EULA. <strong>None</strong> ship with ECC, certified ISV drivers, or datacenter licence. The card itself doesn't know &mdash; the driver enforces.</p>
+    </div>
+</section>
+
+<section class="slide" id="slide-04">
+    <div class="slide-number">04</div>
+    <h2>RTX Pro &mdash; The Workstation Line</h2>
+    <p>The professional line has had three names in five years. Same line; new branding each generation.</p>
+
+    <div class="diagram-vertical">
+        <div class="diagram-box dim">1999&ndash;2020 &mdash; <strong>Quadro</strong> (NVS, FX, K, M, P, RTX-Quadro)</div>
+        <div class="diagram-arrow">&darr;</div>
+        <div class="diagram-box dim">2020&ndash;2023 &mdash; <strong>"NVIDIA RTX"</strong> (RTX A6000 Ampere, RTX 6000 Ada)</div>
+        <div class="diagram-arrow">&darr;</div>
+        <div class="diagram-box accent">2024+ &mdash; <strong>RTX Pro</strong> (RTX Pro 6000 Blackwell, RTX Pro 5000/4500/4000)</div>
+    </div>
+
+    <h3>Flagship by generation</h3>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Card</th><th>Die</th><th>VRAM</th><th>NVLink</th><th>FP64</th><th>Year</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Quadro RTX 8000</td><td>TU102 (Turing)</td><td>48 GB GDDR6 ECC</td><td>Bridge</td><td>1/2 rate</td><td>2018</td></tr>
+                <tr><td>RTX A6000</td><td>GA102 (Ampere)</td><td>48 GB GDDR6 ECC</td><td>Bridge</td><td>1/64 rate</td><td>2020</td></tr>
+                <tr><td>RTX 6000 Ada</td><td>AD102 (Ada)</td><td>48 GB GDDR6 ECC</td><td>None</td><td>1/64 rate</td><td>2022</td></tr>
+                <tr><td>RTX Pro 6000 Blackwell</td><td>GB202 (Blackwell)</td><td><strong>96 GB GDDR7 ECC</strong></td><td>None</td><td>1/64 rate</td><td>2025</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>What makes a card "Pro"</h3>
+    <ul>
+        <li><strong>ECC GDDR.</strong> Single-bit errors detected and corrected; double-bit errors flagged. Costs ~6% of nominal capacity.</li>
+        <li><strong>Larger VRAM.</strong> Same die as the consumer flagship but with twice or four times the memory: 24 GB on a 4090 vs 48 GB on RTX 6000 Ada (both AD102), 32 GB on 5090 vs 96 GB on RTX Pro 6000 Blackwell (both GB202).</li>
+        <li><strong>Certified ISV drivers.</strong> Validated against Autodesk Maya/3ds Max, Dassault SolidWorks/CATIA, PTC Creo, Adobe Premiere/After Effects, ANSYS, DaVinci Resolve. Bug fixes go through QA against those apps.</li>
+        <li><strong>NVIDIA Studio + RTX Enterprise driver branches.</strong> Long-life-support, slower cadence than the gaming GeForce driver.</li>
+        <li><strong>Datacenter EULA permitted.</strong> No "no datacenter" clause &mdash; this is a workstation/datacenter card.</li>
+        <li><strong>Sometimes NVLink bridge.</strong> A6000 Ampere has it; RTX 6000 Ada and RTX Pro 6000 Blackwell do not.</li>
+        <li><strong>Blower-style 2-slot cooling.</strong> Fits in racked workstations and 4U servers where 4-slot axial GeForce cards don't.</li>
+    </ul>
+
+    <div class="callout">
+        <div class="callout-label">Why VRAM doubles on Pro</div>
+        <p>The same GA102/AD102/GB202 silicon supports clamshell GDDR placement &mdash; chips on <em>both</em> sides of the PCB &mdash; doubling capacity with no die change. NVIDIA reserves clamshell layouts for Pro and datacenter SKUs to keep the consumer flagship's price segmentation intact.</p>
+    </div>
+</section>
+
+<section class="slide" id="slide-05">
+    <div class="slide-number">05</div>
+    <h2>Datacenter &mdash; A/H/L/B Series</h2>
+    <p>The datacenter line is split into three rough lanes: top compute (HBM, training-class), inference value (GDDR), and edge/specialist. All datacenter cards share passive cooling, no display outputs, full ECC, and a datacenter-permitting EULA.</p>
+
+    <div class="diagram-grid cols-3">
+        <div class="diagram-panel accent-border">
+            <h4>Top compute (HBM)</h4>
+            <ul>
+                <li><strong>A100</strong> 40/80 GB HBM2e</li>
+                <li><strong>H100</strong> 80 GB HBM3</li>
+                <li><strong>H200</strong> 141 GB HBM3e</li>
+                <li><strong>B100</strong> 192 GB HBM3e</li>
+                <li><strong>B200</strong> 192 GB HBM3e (8 TB/s)</li>
+                <li><strong>B300</strong> 288 GB HBM3e</li>
+            </ul>
+            <p style="margin-top:0.5rem;">SXM module &rarr; NVSwitch fabric, 8&times; per HGX baseboard. PCIe versions exist but with reduced TDP and no NVLink fabric.</p>
+        </div>
+        <div class="diagram-panel accent-border">
+            <h4>Inference value (GDDR)</h4>
+            <ul>
+                <li><strong>A30</strong> 24 GB HBM2 (PCIe, MIG)</li>
+                <li><strong>A40</strong> 48 GB GDDR6 ECC</li>
+                <li><strong>A10</strong> 24 GB GDDR6 (single slot)</li>
+                <li><strong>L4</strong> 24 GB GDDR6, 72 W</li>
+                <li><strong>L40</strong> 48 GB GDDR6 ECC</li>
+                <li><strong>L40S</strong> 48 GB GDDR6 ECC, FP8 enabled</li>
+                <li><strong>T4</strong> 16 GB GDDR6 (Turing legacy)</li>
+            </ul>
+        </div>
+        <div class="diagram-panel accent-border">
+            <h4>Specialist / edge</h4>
+            <ul>
+                <li><strong>A2</strong> 16 GB GDDR6, 40&ndash;60 W, low-profile single-slot</li>
+                <li><strong>T4</strong> 16 GB, 70 W &mdash; the workhorse of cloud inference 2019&ndash;2023</li>
+            </ul>
+            <p style="margin-top:0.5rem;">A2 is the smallest "real" datacenter card &mdash; designed for telco edge boxes and small inference appliances.</p>
+        </div>
+    </div>
+
+    <h3>Form factors</h3>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Form factor</th><th>Used by</th><th>NVLink</th><th>TDP envelope</th><th>Cooling</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>SXM2/3/4/5</strong></td><td>V100, A100, H100, H200, B100, B200</td><td>Full NVSwitch fabric</td><td>400&ndash;1000 W</td><td>Mezzanine on HGX baseboard</td></tr>
+                <tr><td><strong>PCIe FHFL 2-slot</strong></td><td>A40, A100 PCIe, H100 PCIe, L40S, B200 PCIe</td><td>Bridge or none</td><td>250&ndash;400 W</td><td>Passive (server airflow)</td></tr>
+                <tr><td><strong>PCIe single-slot</strong></td><td>T4, A10, L4, A2</td><td>None</td><td>40&ndash;150 W</td><td>Passive low-profile</td></tr>
+                <tr><td><strong>SuperPOD / NVL72</strong></td><td>GB200 (rack as a unit)</td><td>NVLink 5 spine</td><td>120 kW per rack</td><td>Liquid (DLC)</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Why no display outputs</div>
+        <p>Datacenter cards omit display engine PCB area to make room for HBM stacks (or extra GDDR clamshell), to remove a class of failure and a class of EMC certification, and to physically distinguish them from prosumer SKUs. The display engine still exists on-die, it just isn't bonded out. This is partly why the BIOS strap matters: the same AD102 in an L40S has the display path disabled in firmware.</p>
+    </div>
+</section>
+
+<section class="slide" id="slide-06">
+    <div class="slide-number">06</div>
+    <h2>The China-Export Variants</h2>
+    <p>US Bureau of Industry and Security (BIS) export controls have driven a parallel SKU family aimed exclusively at the Chinese market. The rules don't ban GPU sales &mdash; they cap the <em>capability</em> of any single package.</p>
+
+    <h3>Timeline of the rules</h3>
+    <ul>
+        <li><strong>October 2022.</strong> First BIS rule. Bandwidth threshold: chips with bidirectional interconnect &gt; 600 GB/s and aggregate FLOPS above ~4800 TFLOPS-equivalent need a licence to ship to China. A100 and H100 caught.</li>
+        <li><strong>NVIDIA response (Nov 2022).</strong> A800 &mdash; an A100 with NVLink slowed from 600 GB/s to 400 GB/s. Same compute. Compliant. H800 &mdash; H100 with NVLink slowed from 900 GB/s to 400 GB/s. Same FP8 throughput.</li>
+        <li><strong>October 2023.</strong> Tighter rule. Now constrains "performance density" (FLOPS / mm²) <em>and</em> total compute. A800/H800 now also banned. New rule explicitly anti-circumvention.</li>
+        <li><strong>NVIDIA response (Dec 2023).</strong> H20 &mdash; an H100 die with most SMs disabled, FP8 throughput cut to ~4 PFLOPS, but full <strong>96 GB HBM3</strong> retained. Counter-intuitively a great pure-inference card because LLM decode is bandwidth-bound, not compute-bound.</li>
+        <li><strong>2025+.</strong> Blackwell-era B20/B30/B300A variants pending US rule clarifications; specifications change as the export licence regime evolves.</li>
+    </ul>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>SKU</th><th>Based on</th><th>What's throttled</th><th>What's preserved</th><th>Niche</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>A800</strong></td><td>A100 80 GB</td><td>NVLink 600 &rarr; 400 GB/s</td><td>Compute, HBM2e bandwidth</td><td>Training in China, 2022&ndash;2023</td></tr>
+                <tr><td><strong>H800</strong></td><td>H100 SXM</td><td>NVLink 900 &rarr; 400 GB/s</td><td>FP8 throughput, HBM3 bandwidth</td><td>Training in China, 2023</td></tr>
+                <tr><td><strong>H20</strong></td><td>H100 die, fewer SMs</td><td>FP8 ~16x cut to ~4 PFLOPS</td><td>96 GB HBM3, full bandwidth</td><td>LLM <em>inference</em> in China, 2024+</td></tr>
+                <tr><td><strong>L20 / L2</strong></td><td>L40 / L4</td><td>SM count + clocks</td><td>VRAM, video engines</td><td>Visualisation / inference, China</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">The lesson</div>
+        <p>Compute-cap rules drive product segmentation by region, not just by tier. The H20 in particular demonstrates that bandwidth and capacity matter more than peak FLOPS for inference &mdash; NVIDIA could keep the memory subsystem intact while butchering compute, and the result is a perfectly serviceable LLM serving card that satisfies BIS thresholds.</p>
+    </div>
+</section>
+
+<section class="slide" id="slide-07">
+    <div class="slide-number">07</div>
+    <h2>Jetson &amp; Tegra &mdash; Edge AI Family</h2>
+    <p>NVIDIA's mobile/embedded line has two names. <strong>Tegra</strong> is the SoC silicon family (originally for phones and tablets, today for automotive and embedded); <strong>Jetson</strong> is the developer kit / module family that ships those SoCs as edge AI hardware. Same chip, different packaging and distribution channel.</p>
+
+    <div class="diagram-grid cols-2">
+        <div class="diagram-panel accent-border">
+            <h4>Tegra (the SoC)</h4>
+            <p>An ARM SoC with an integrated NVIDIA GPU, video engines, and ISP. Generations: Tegra 2 / 3 / 4 (early Android), Tegra K1 (first Kepler GPU), X1 (Maxwell, used in Nintendo Switch), Xavier (Volta + Carmel ARM cores), Orin (Ampere SM + Cortex-A78AE), Thor (Blackwell SM, 2025+).</p>
+            <p>Core market: <strong>automotive</strong> (NVIDIA Drive AGX), industrial, robotics. Switch is the rare mass-consumer slot.</p>
+        </div>
+        <div class="diagram-panel accent-border">
+            <h4>Jetson (the dev module)</h4>
+            <p>SoMs built around Tegra. Officially supported through JetPack (Linux for Tegra + CUDA + cuDNN + TensorRT for ARM). Sold as developer kits and as production modules.</p>
+            <p>Current line: <strong>Orin</strong> (Ampere). Next: <strong>Thor</strong> (Blackwell), 2025+, ~1500 TOPS FP4 for robotics + autonomous vehicles.</p>
+        </div>
+    </div>
+
+    <h3>The Orin family today</h3>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Module</th><th>GPU</th><th>RAM</th><th>AI perf</th><th>TDP</th><th>Price</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Jetson Orin Nano (8 GB)</td><td>Ampere, 1024 CUDA / 32 Tensor</td><td>8 GB LPDDR5</td><td>40 TOPS (Super)</td><td>15 W</td><td>~$200</td></tr>
+                <tr><td>Jetson Orin NX 8 GB</td><td>Ampere, 1024 CUDA</td><td>8 GB LPDDR5</td><td>70 TOPS</td><td>10&ndash;20 W</td><td>~$400</td></tr>
+                <tr><td>Jetson Orin NX 16 GB</td><td>Ampere, 1024 CUDA</td><td>16 GB LPDDR5</td><td>100 TOPS</td><td>10&ndash;25 W</td><td>~$600</td></tr>
+                <tr><td>Jetson AGX Orin 32 GB</td><td>Ampere, 1792 CUDA</td><td>32 GB LPDDR5</td><td>200 TOPS</td><td>15&ndash;40 W</td><td>~$1,500</td></tr>
+                <tr><td>Jetson AGX Orin 64 GB</td><td>Ampere, 2048 CUDA</td><td>64 GB LPDDR5</td><td>275 TOPS</td><td>15&ndash;60 W</td><td>~$2,000</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>The software stack</h3>
+    <ul>
+        <li><strong>JetPack.</strong> NVIDIA's edge SDK bundle: CUDA, cuDNN, TensorRT, VPI (vision), DeepStream (video analytics) &mdash; all built for ARM64.</li>
+        <li><strong>Linux for Tegra (L4T).</strong> Ubuntu-based BSP customised for Tegra hardware (display, camera, ISP, codec).</li>
+        <li><strong>Holoscan.</strong> Real-time streaming framework for sensor pipelines &mdash; targeted at medical edge, surgical robotics, smart instruments.</li>
+        <li><strong>Isaac.</strong> Robotics platform &mdash; Isaac SIM, Isaac ROS GEMs, Isaac Manipulator. Runs on Jetson AGX as the on-board compute.</li>
+        <li><strong>NVIDIA Drive.</strong> Automotive variant with Drive OS (functional-safety Linux) and Drive AGX hardware (multi-Orin or Thor).</li>
+    </ul>
+
+    <div class="callout">
+        <div class="callout-label">Why Jetson matters for LLMs</div>
+        <p>Jetson AGX Orin 64 GB has more usable memory than an RTX 4090 (64 GB unified vs 24 GB VRAM), albeit at much lower bandwidth (~204 GB/s LPDDR5 vs 1 TB/s GDDR6X). For a 30B INT4 model where decode is bandwidth-bound, AGX Orin will serve a few tok/s entirely on a 60 W power budget &mdash; a useful proposition for offline / edge LLM products. Jetson Thor will dramatically widen this niche.</p>
+    </div>
+</section>
+
+<section class="slide" id="slide-08">
+    <div class="slide-number">08</div>
+    <h2>The EULA &mdash; What You Can and Can't Do</h2>
+    <p>NVIDIA enforces product segmentation through software licences, not silicon. Two distinct EULAs govern almost every GPU sold today.</p>
+
+    <div class="diagram-grid cols-2">
+        <div class="diagram-panel accent-border">
+            <h4>GeForce Driver EULA</h4>
+            <p><strong>Forbids "datacenter deployment"</strong> of consumer GeForce cards. The exact clause has evolved, but the operative term is "Datacenter Deployment".</p>
+            <p><strong>Allowed:</strong></p>
+            <ul>
+                <li>Home, office, single-tenant internal use</li>
+                <li>Personal AI/ML research, hobby projects, learning</li>
+                <li>Cryptocurrency mining (post-LHR removal in 2022)</li>
+                <li>Game development (any scale)</li>
+                <li>Blockchain processing (single-tenant)</li>
+            </ul>
+            <p><strong>Forbidden:</strong></p>
+            <ul>
+                <li>Multi-tenant cloud hosting</li>
+                <li>Public-facing AI services at scale on consumer hardware</li>
+                <li>Commercial datacenter colocation</li>
+                <li>SaaS GPU rental</li>
+            </ul>
+        </div>
+        <div class="diagram-panel accent-border">
+            <h4>Workstation / Datacenter Driver EULA</h4>
+            <p>Applies to RTX Pro, A/H/L/B-series, and Tesla-branded cards. <strong>No datacenter restriction.</strong></p>
+            <p><strong>Allowed:</strong></p>
+            <ul>
+                <li>All of the above</li>
+                <li>Multi-tenant cloud / SaaS</li>
+                <li>Public-facing commercial AI services</li>
+                <li>Datacenter colocation</li>
+                <li>Bare-metal rental, GPU-as-a-service</li>
+                <li>Carrier-grade telco edge</li>
+            </ul>
+            <p><strong>Comes with strings:</strong> SLA-grade driver branch (Production Branch), formal support contract via NVIDIA AI Enterprise (separate licence), validated server platforms.</p>
+        </div>
+    </div>
+
+    <h3>Enforcement reality</h3>
+    <ul>
+        <li><strong>By audit, not by driver.</strong> The driver does not refuse to load on consumer hardware in a colo &mdash; it has no way of knowing. NVIDIA enforces by reading customers' marketing material, monitoring procurement (via OEMs and distributors), and occasional cease-and-desist when caught.</li>
+        <li><strong>Big-cloud datacenters use only datacenter SKUs as a rule.</strong> AWS, GCP, Azure, OCI exclusively rack T4, A10, A100, H100, H200, L4, L40S, B200. Not because it's literally illegal otherwise but because NVIDIA's volume contracts are explicit about it.</li>
+        <li><strong>Small-scale commercial use is largely tolerated.</strong> An indie SaaS running a handful of 4090s in a closet typically doesn't draw attention. NVIDIA has rarely (publicly) enforced against small commercial users.</li>
+        <li><strong>Cloud GPU rental on consumer cards has been enforced.</strong> The 2017 wave of crypto-mining-on-Tesla and consumer-cards-as-cloud-rental triggered the first explicit "no datacenter" clause.</li>
+        <li><strong>Educational and government carve-outs.</strong> Some EULA versions exempt blockchain mining and educational use explicitly &mdash; check your specific driver version's EULA.</li>
+    </ul>
+
+    <div class="callout">
+        <div class="callout-label">The pragmatic rule</div>
+        <p>If you're building a commercial multi-tenant service, the cost difference between a 4090 and an L40S is small relative to your time and risk. Use the workstation/datacenter SKU. If you're a single team running internal inference on company hardware, 4090s and 5090s are fine in practice, and a great deal cheaper. The EULA boundary is "do you sell GPU time to third parties" &mdash; not "do you have it in a rack".</p>
+    </div>
+</section>
+
+<section class="slide" id="slide-09">
+    <div class="slide-number">09</div>
+    <h2>The "Same Die, Different Card" Phenomenon</h2>
+    <p>The single most useful insight in this entire deck: <strong>marketing tier &ne; silicon tier</strong>. NVIDIA sells the same physical GPU die in three pillars at vastly different prices, with the differences driven by VRAM count, clocks, BIOS strap, and licence &mdash; not silicon.</p>
+
+    <h3>GA102 (Ampere) &mdash; one die, six cards</h3>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Card</th><th>Pillar</th><th>VRAM</th><th>ECC</th><th>NVLink</th><th>EULA</th><th>TDP</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>RTX 3080 Ti</td><td>Consumer</td><td>12 GB GDDR6X</td><td>No</td><td>No</td><td>GeForce</td><td>350 W</td></tr>
+                <tr><td>RTX 3090</td><td>Consumer</td><td>24 GB GDDR6X</td><td>No</td><td>Bridge</td><td>GeForce</td><td>350 W</td></tr>
+                <tr><td>RTX 3090 Ti</td><td>Consumer</td><td>24 GB GDDR6X</td><td>No</td><td>Bridge</td><td>GeForce</td><td>450 W</td></tr>
+                <tr><td>RTX A6000</td><td>Workstation</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td>Bridge</td><td>Pro/DC</td><td>300 W</td></tr>
+                <tr><td>A40</td><td>Datacenter</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td>Bridge</td><td>DC</td><td>300 W</td></tr>
+                <tr><td>A10</td><td>Datacenter</td><td>24 GB GDDR6</td><td>Yes</td><td>No</td><td>DC</td><td>150 W</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>AD102 (Ada Lovelace) &mdash; one die, five cards</h3>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Card</th><th>Pillar</th><th>VRAM</th><th>ECC</th><th>FP8</th><th>EULA</th><th>TDP</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>RTX 4080 Super</td><td>Consumer</td><td>16 GB GDDR6X</td><td>No</td><td>No</td><td>GeForce</td><td>320 W</td></tr>
+                <tr><td>RTX 4090</td><td>Consumer</td><td>24 GB GDDR6X</td><td>No</td><td>No</td><td>GeForce</td><td>450 W</td></tr>
+                <tr><td>RTX 6000 Ada</td><td>Workstation</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td>No</td><td>Pro/DC</td><td>300 W</td></tr>
+                <tr><td>L40</td><td>Datacenter</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td>No</td><td>DC</td><td>300 W</td></tr>
+                <tr><td>L40S</td><td>Datacenter</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td><strong>Yes</strong></td><td>DC</td><td>350 W</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>GB100 / GB202 (Blackwell)</h3>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Card</th><th>Die</th><th>Pillar</th><th>VRAM</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>RTX 5090</td><td>GB202</td><td>Consumer</td><td>32 GB GDDR7</td><td>GeForce flagship</td></tr>
+                <tr><td>RTX Pro 6000 Blackwell</td><td>GB202</td><td>Workstation</td><td>96 GB GDDR7 ECC</td><td>Same die, 3&times; VRAM via clamshell</td></tr>
+                <tr><td>B100</td><td>GB100 (dual-die)</td><td>Datacenter</td><td>192 GB HBM3e</td><td>700 W</td></tr>
+                <tr><td>B200</td><td>GB100 (dual-die)</td><td>Datacenter</td><td>192 GB HBM3e</td><td>1000 W &mdash; same silicon, higher power bin</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">Buying logic</div>
+        <p>Don't buy the marketing tier &mdash; buy the firmware features you need. If your job needs ECC, NVLink, MIG, or datacenter EULA, those features are gated by SKU choice within the same silicon. If your job needs only single-stream raw throughput, the cheapest card on the right die wins. The L40S vs RTX 6000 Ada example is a good illustration: same AD102 die, same 48 GB ECC, but only the L40S has FP8 enabled (firmware bin difference) &mdash; and for LLM serving in 2025+, that's the deciding feature.</p>
+    </div>
+</section>
+
+<section class="slide" id="slide-10">
+    <div class="slide-number">10</div>
+    <h2>Driver Branches &amp; Compute Capability</h2>
+    <p>NVIDIA's driver isn't a single artefact &mdash; it's at least two parallel streams, and matching the driver to the silicon and the workload is essential operational hygiene.</p>
+
+    <div class="diagram-grid cols-2">
+        <div class="diagram-panel accent-border">
+            <h4>Production Branch (PB)</h4>
+            <p>~6-month cadence, longer support tail (~1 year). Validated against the NVIDIA AI Enterprise stack and certified server platforms. Used by datacenter operators and enterprise workstation users.</p>
+            <p>Examples (2024&ndash;2026): R535, R550, R570 PB.</p>
+            <p>Trade-off: <em>conservative</em>. Gets bug fixes; doesn't get the latest CUDA features as fast.</p>
+        </div>
+        <div class="diagram-panel accent-border">
+            <h4>New Feature Branch (NFB)</h4>
+            <p>Faster cadence (monthly to quarterly). Adds new CUDA toolkit features as they ship. Used by GeForce/Studio consumers, gamers, and bleeding-edge developers.</p>
+            <p>Examples (2024&ndash;2026): R545, R555, R560, R565, R570 NFB, R575.</p>
+            <p>Trade-off: <em>aggressive</em>. Newest features, occasional regressions.</p>
+        </div>
+    </div>
+
+    <h3>Driver version &harr; CUDA toolkit support</h3>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Driver</th><th>Required for</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>R525+</td><td>Hopper (H100) basic support</td><td>CUDA 12.0; Hopper FP8 via Transformer Engine library</td></tr>
+                <tr><td>R535+</td><td>Hopper FP8 production</td><td>CUDA 12.2; cuBLASLt FP8 GEMMs</td></tr>
+                <tr><td>R550+</td><td>Hopper TMA, thread-block clusters</td><td>CUDA 12.4; full Hopper feature set</td></tr>
+                <tr><td>R555+</td><td>Blackwell preview</td><td>CUDA 12.5; B100/B200 early access</td></tr>
+                <tr><td>R560+</td><td>Blackwell GA</td><td>CUDA 12.6; FP4 / MX-FP4 paths</td></tr>
+                <tr><td>R570+</td><td>Blackwell + flash-attn 3 polished</td><td>CUDA 12.7+; production Blackwell</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Compute Capability and kernel binaries</h3>
+    <p>Every CUDA kernel is compiled for a specific <strong>Compute Capability (CC)</strong>. A wheel built only for <code>sm_80</code> won't use Hopper's FP8 tensor cores even on an H100; you'd need <code>sm_90</code>. The same wheel running on Blackwell needs <code>sm_100</code> (B100/B200) or <code>sm_120</code> (consumer Blackwell).</p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>CC</th><th>Arch</th><th>What unlocks at this CC</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>sm_75</td><td>Turing</td><td>First Tensor Cores; FP16/INT8</td></tr>
+                <tr><td>sm_80</td><td>A100</td><td>BF16, TF32, async copy, MIG</td></tr>
+                <tr><td>sm_86</td><td>Consumer Ampere (3090)</td><td>BF16, TF32, no MIG</td></tr>
+                <tr><td>sm_89</td><td>Ada (4090, L40S, RTX 6000 Ada)</td><td>FP8 (L40S only enabled in firmware)</td></tr>
+                <tr><td>sm_90</td><td>Hopper (H100, H200)</td><td>FP8 native, TMA, thread-block clusters, DSMEM</td></tr>
+                <tr><td>sm_100</td><td>Datacenter Blackwell (B100, B200)</td><td>FP4 (MX), 5th-gen Tensor Cores, NVLink 5</td></tr>
+                <tr><td>sm_120</td><td>Consumer Blackwell (RTX 50, RTX Pro 6000 Blackwell)</td><td>FP4, GDDR7</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="code-block">
+        <div class="code-header">Build wheels for the right CC</div>
+        <pre><code><span class="cm"># nvcc explicit target list:</span>
+nvcc -gencode arch=compute_80,code=sm_80 \
+     -gencode arch=compute_86,code=sm_86 \
+     -gencode arch=compute_89,code=sm_89 \
+     -gencode arch=compute_90,code=sm_90 \
+     -gencode arch=compute_100,code=sm_100 \
+     -gencode arch=compute_120,code=sm_120 \
+     <span class="kw">-O3</span> kernel.cu -o kernel
+
+<span class="cm"># PyTorch / torch.compile environment hint:</span>
+<span class="kw">export</span> TORCH_CUDA_ARCH_LIST=<span class="str">&quot;8.0;8.6;8.9;9.0;10.0;12.0&quot;</span>
+
+<span class="cm"># Verify the GPU's CC at runtime:</span>
+nvidia-smi --query-gpu=compute_cap --format=csv</code></pre>
+    </div>
+
+    <div class="callout">
+        <div class="callout-label">The cliff</div>
+        <p>If a wheel was built only for <code>sm_80</code> and you run it on a Blackwell card, the driver falls back to JIT-compiling PTX (slow first launch) or refuses if no PTX is embedded. <strong>Always verify the CC list embedded in your wheels matches your fleet</strong> &mdash; especially when migrating from H100 to B200 or from 4090 to 5090.</p>
+    </div>
+</section>
+
+<section class="slide" id="slide-11">
+    <div class="slide-number">11</div>
+    <h2>Interactive: Card-to-Use-Case Mapper</h2>
+    <p>Pick a SKU. Get the family classification, the firmware features, the licence boundary, and a recommended role.</p>
+
+    <div class="control-panel">
+        <div class="control-row">
+            <label for="cm-card">SKU</label>
+            <select id="cm-card">
+                <optgroup label="Consumer (GeForce)">
+                    <option value="3060">RTX 3060 12 GB</option>
+                    <option value="3070">RTX 3070 8 GB</option>
+                    <option value="3080">RTX 3080 10 GB</option>
+                    <option value="3090">RTX 3090 24 GB</option>
+                    <option value="4060">RTX 4060 8 GB</option>
+                    <option value="4070">RTX 4070 12 GB</option>
+                    <option value="4080">RTX 4080 16 GB</option>
+                    <option value="4090" selected>RTX 4090 24 GB</option>
+                    <option value="5070">RTX 5070 12 GB</option>
+                    <option value="5080">RTX 5080 16 GB</option>
+                    <option value="5090">RTX 5090 32 GB</option>
+                </optgroup>
+                <optgroup label="Workstation (RTX Pro)">
+                    <option value="rtx6000ada">RTX 6000 Ada 48 GB</option>
+                    <option value="rtxpro6000">RTX Pro 6000 Blackwell 96 GB</option>
+                </optgroup>
+                <optgroup label="Datacenter (A/H/L/B/T)">
+                    <option value="t4">T4 16 GB</option>
+                    <option value="a2">A2 16 GB</option>
+                    <option value="a10">A10 24 GB</option>
+                    <option value="a30">A30 24 GB</option>
+                    <option value="a40">A40 48 GB</option>
+                    <option value="a100-40">A100 40 GB</option>
+                    <option value="a100-80">A100 80 GB</option>
+                    <option value="l4">L4 24 GB</option>
+                    <option value="l40">L40 48 GB</option>
+                    <option value="l40s">L40S 48 GB</option>
+                    <option value="h100p">H100 80 GB PCIe</option>
+                    <option value="h100s">H100 80 GB SXM</option>
+                    <option value="h200">H200 141 GB SXM</option>
+                    <option value="b100">B100 192 GB</option>
+                    <option value="b200">B200 192 GB</option>
+                </optgroup>
+                <optgroup label="Edge (Jetson)">
+                    <option value="orin-nano">Jetson Orin Nano 8 GB</option>
+                    <option value="orin-nx">Jetson Orin NX 16 GB</option>
+                    <option value="orin-agx">Jetson AGX Orin 64 GB</option>
+                </optgroup>
+                <optgroup label="Workstation appliance">
+                    <option value="spark">DGX Spark (GB10) 128 GB</option>
+                </optgroup>
+            </select>
+        </div>
+        <div class="metric-grid">
+            <div class="metric"><div class="metric-label">Family</div><div class="metric-value" id="m-family">—</div></div>
+            <div class="metric"><div class="metric-label">VRAM</div><div class="metric-value" id="m-vram">—</div></div>
+            <div class="metric"><div class="metric-label">ECC</div><div class="metric-value" id="m-ecc">—</div></div>
+            <div class="metric"><div class="metric-label">NVLink</div><div class="metric-value" id="m-nvlink">—</div></div>
+            <div class="metric"><div class="metric-label">MIG</div><div class="metric-value" id="m-mig">—</div></div>
+            <div class="metric"><div class="metric-label">DC EULA</div><div class="metric-value" id="m-eula">—</div></div>
+            <div class="metric"><div class="metric-label">Suggested role</div><div class="metric-value" id="m-role">—</div></div>
+            <div class="metric"><div class="metric-label">Price band</div><div class="metric-value" id="m-price">—</div></div>
+        </div>
+        <div id="cm-out" class="result-box"></div>
+    </div>
+
+    <script>
+    (function(){
+        // family: consumer | workstation | datacenter | edge
+        // role: gaming | dev | inference | training | edge
+        // price: $ / $$ / $$$ / $$$$
+        const cards = {
+            // Consumer
+            '3060':       { name:'RTX 3060 12 GB',         family:'consumer',    vram:12,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming/dev',  price:'$',    arch:'Ampere',    die:'GA106', note:'Cheap entry into CUDA. Will run 7B q4 LLMs comfortably; 13B is tight at 4-bit. Best as a learning card or a small home inference node.' },
+            '3070':       { name:'RTX 3070 8 GB',          family:'consumer',    vram:8,   ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming',      price:'$',    arch:'Ampere',    die:'GA104', note:'8 GB is tight for modern LLMs &mdash; 7B q4 fits, anything bigger is painful. Solid gaming card.' },
+            '3080':       { name:'RTX 3080 10 GB',         family:'consumer',    vram:10,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming/dev',  price:'$$',   arch:'Ampere',    die:'GA102', note:'GA102 die but cut-down VRAM. Great gaming, marginal LLM. The 12 GB variant gives more headroom.' },
+            '3090':       { name:'RTX 3090 24 GB',         family:'consumer',    vram:24,  ecc:'No',  nvlink:'Bridge', mig:'No',  eula:'No',  role:'dev/inference', price:'$$', arch:'Ampere',    die:'GA102', note:'The hobbyist LLM card. 24 GB at GDDR6X bandwidth runs 13B at FP16 or 30B at INT4. Last GeForce with NVLink &mdash; pair two for 48 GB pool.' },
+            '4060':       { name:'RTX 4060 8 GB',          family:'consumer',    vram:8,   ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming',      price:'$',    arch:'Ada',       die:'AD107', note:'Entry Ada. 8 GB caps you at 7B q4 LLMs. Efficient at gaming TDP but a poor LLM choice today.' },
+            '4070':       { name:'RTX 4070 12 GB',         family:'consumer',    vram:12,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming/dev',  price:'$$',   arch:'Ada',       die:'AD104', note:'Mid Ada. 12 GB fits 13B q4 with KV-cache headroom. A reasonable entry-level dev card if you don\'t need pro features.' },
+            '4080':       { name:'RTX 4080 16 GB',         family:'consumer',    vram:16,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'dev',         price:'$$$',  arch:'Ada',       die:'AD103', note:'Strong Ada single-card; 16 GB allows up to ~24B INT4. No NVLink &mdash; multi-card scaling is PCIe-only.' },
+            '4090':       { name:'RTX 4090 24 GB',         family:'consumer',    vram:24,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'dev/inference', price:'$$$', arch:'Ada',     die:'AD102', note:'Consumer flagship. 24 GB GDDR6X at 1 TB/s gives the best single-stream tok/s on consumer hardware. No NVLink &mdash; for multi-card stick to data parallelism.' },
+            '5070':       { name:'RTX 5070 12 GB',         family:'consumer',    vram:12,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming/dev',  price:'$$',   arch:'Blackwell', die:'GB205', note:'Mid Blackwell. GDDR7 bandwidth jump; 12 GB still caps you at smaller LLMs. FP4 path comes through here.' },
+            '5080':       { name:'RTX 5080 16 GB',         family:'consumer',    vram:16,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'dev',         price:'$$$',  arch:'Blackwell', die:'GB203', note:'Enthusiast Blackwell with FP4 tensor cores. 16 GB GDDR7 covers 14B BF16 or 30B INT4.' },
+            '5090':       { name:'RTX 5090 32 GB',         family:'consumer',    vram:32,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'dev/inference', price:'$$$$', arch:'Blackwell', die:'GB202', note:'Consumer flagship. 32 GB GDDR7 at ~1.8 TB/s. Native FP4. Best single-card LLM card you can buy as a consumer.' },
+
+            // Workstation
+            'rtx6000ada': { name:'RTX 6000 Ada 48 GB',     family:'workstation', vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Ada',    die:'AD102', note:'AD102 with 48 GB ECC and certified ISV drivers. 70B INT4 or 30B BF16 fits. Datacenter EULA &mdash; legal in any rack. No FP8 unlock (vs L40S).' },
+            'rtxpro6000': { name:'RTX Pro 6000 Blackwell 96 GB', family:'workstation', vram:96, ecc:'Yes', nvlink:'No',  mig:'No',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Blackwell', die:'GB202', note:'GB202 with 96 GB GDDR7 ECC &mdash; 4&times; the consumer 5090. 70B BF16 fits comfortably. Native FP4 + workstation EULA &mdash; best non-HBM card you can put in one box.' },
+
+            // Datacenter
+            't4':         { name:'T4 16 GB',               family:'datacenter',  vram:16,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$',    arch:'Turing',    die:'TU104', note:'70 W single-slot, the original cloud inference workhorse 2019&ndash;2023. Largely retired but still in service for small-model fleets.' },
+            'a2':         { name:'A2 16 GB',               family:'datacenter',  vram:16,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'edge',        price:'$',    arch:'Ampere',    die:'GA107', note:'Smallest "real" datacenter card. 40&ndash;60 W, low-profile single-slot &mdash; designed for telco edge and embedded inference appliances.' },
+            'a10':        { name:'A10 24 GB',              family:'datacenter',  vram:24,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$',   arch:'Ampere',    die:'GA102', note:'Single-slot 150 W datacenter card on GA102. Great for VDI + medium inference workloads where you can\'t spend on H100s.' },
+            'a30':        { name:'A30 24 GB',              family:'datacenter',  vram:24,  ecc:'Yes', nvlink:'No',     mig:'Yes', eula:'Yes', role:'inference',   price:'$$',   arch:'Ampere',    die:'GA100', note:'GA100-derived with HBM2 and MIG. PCIe 165 W. Often forgotten but a decent multi-tenant inference partition.' },
+            'a40':        { name:'A40 48 GB',              family:'datacenter',  vram:48,  ecc:'Yes', nvlink:'Bridge', mig:'No',  eula:'Yes', role:'inference',   price:'$$$',  arch:'Ampere',    die:'GA102', note:'GA102 with 48 GB ECC. Common in VDI + visualisation roles. Effectively the datacenter A6000.' },
+            'a100-40':    { name:'A100 40 GB',             family:'datacenter',  vram:40,  ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training',  price:'$$$$', arch:'Ampere',  die:'GA100', note:'The training workhorse 2020&ndash;2023. HBM2e at ~1.6 TB/s (40 GB). MIG capable. Still a strong inference card.' },
+            'a100-80':    { name:'A100 80 GB',             family:'datacenter',  vram:80,  ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training',  price:'$$$$', arch:'Ampere',  die:'GA100', note:'The 80 GB SKU added later &mdash; HBM2e at ~2 TB/s. Still in heavy production for inference where H100s are oversubscribed.' },
+            'l4':         { name:'L4 24 GB',               family:'datacenter',  vram:24,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$',   arch:'Ada',       die:'AD104', note:'Successor to T4. 72 W single-slot, GDDR6, video engines for streaming. Cloud-scale inference and transcoding.' },
+            'l40':        { name:'L40 48 GB',              family:'datacenter',  vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$$',  arch:'Ada',       die:'AD102', note:'AD102 datacenter card with 48 GB ECC. Visualisation + inference. <strong>FP8 not enabled</strong> in firmware &mdash; that\'s the L40S.' },
+            'l40s':       { name:'L40S 48 GB',             family:'datacenter',  vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$$$', arch:'Ada',       die:'AD102', note:'L40 with FP8 turned on in firmware (the "S" = Server bin). The cheapest datacenter card with FP8. Sweet spot for cost-effective LLM serving without HBM money.' },
+            'h100p':      { name:'H100 80 GB PCIe',        family:'datacenter',  vram:80,  ecc:'Yes', nvlink:'Bridge', mig:'Yes', eula:'Yes', role:'training/inference', price:'$$$$', arch:'Hopper', die:'GH100', note:'PCIe 350 W variant. Same die, lower clocks, no NVSwitch. Good for single-card servers; for TP across many GPUs use the SXM form factor.' },
+            'h100s':      { name:'H100 80 GB SXM',         family:'datacenter',  vram:80,  ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training',  price:'$$$$', arch:'Hopper',  die:'GH100', note:'The 700 W SXM5 variant. HBM3 at 3.35 TB/s. Full NVSwitch fabric on HGX baseboards &mdash; the datacenter training card 2023&ndash;2024.' },
+            'h200':       { name:'H200 141 GB SXM',        family:'datacenter',  vram:141, ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training/inference', price:'$$$$', arch:'Hopper', die:'GH100', note:'Same H100 die with HBM3e instead of HBM3 &mdash; 141 GB at ~4.8 TB/s. Massive inference win for large models; same compute as H100.' },
+            'b100':       { name:'B100 192 GB',            family:'datacenter',  vram:192, ecc:'Yes', nvlink:'NVSwitch', mig:'No',  eula:'Yes', role:'training',  price:'$$$$', arch:'Blackwell', die:'GB100', note:'Dual-die on a single package. 192 GB HBM3e. Lower power bin than B200; same silicon. NVLink 5.' },
+            'b200':       { name:'B200 192 GB',            family:'datacenter',  vram:192, ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training',  price:'$$$$', arch:'Blackwell', die:'GB100', note:'1000 W flagship. ~8 TB/s HBM3e. Native FP4. The frontier training card &mdash; this is what GPT-class models train on in 2025+.' },
+
+            // Edge
+            'orin-nano':  { name:'Jetson Orin Nano 8 GB',  family:'edge',        vram:8,   ecc:'No',  nvlink:'No',     mig:'No',  eula:'Yes', role:'edge',        price:'$',    arch:'Ampere',    die:'Tegra Orin', note:'15 W edge AI module. 8 GB unified LPDDR5. Runs 7B q4 at modest tok/s. Great for offline robots, cameras, kiosks.' },
+            'orin-nx':    { name:'Jetson Orin NX 16 GB',   family:'edge',        vram:16,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'Yes', role:'edge',        price:'$$',   arch:'Ampere',    die:'Tegra Orin', note:'25 W edge AI module. 16 GB unified. Suitable for 13B q4 LLMs at the edge.' },
+            'orin-agx':   { name:'Jetson AGX Orin 64 GB',  family:'edge',        vram:64,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'Yes', role:'edge',        price:'$$$',  arch:'Ampere',    die:'Tegra Orin', note:'60 W edge AI module. 64 GB unified at ~204 GB/s &mdash; more memory than a 4090. Bandwidth-bound but fits 30B INT4. Robotics + autonomous compute.' },
+
+            // Workstation appliance
+            'spark':      { name:'DGX Spark (GB10) 128 GB', family:'workstation', vram:128, ecc:'Yes', nvlink:'C2C',   mig:'No',  eula:'Yes', role:'dev',         price:'$$$',  arch:'Blackwell', die:'GB10', note:'Grace-Blackwell desktop appliance. 128 GB unified LPDDR5x at ~273 GB/s with NVLink-C2C to ARM CPU. The largest "local" model surface available without a server rack.' }
+        };
+
+        const families = {
+            consumer:    'Consumer (GeForce)',
+            workstation: 'Workstation',
+            datacenter:  'Datacenter',
+            edge:        'Edge (Jetson)'
+        };
+
+        function rec(){
+            const k = document.getElementById('cm-card').value;
+            const c = cards[k];
+            document.getElementById('m-family').textContent = families[c.family];
+            document.getElementById('m-vram').textContent   = c.vram + ' GB';
+            document.getElementById('m-ecc').textContent    = c.ecc;
+            document.getElementById('m-nvlink').textContent = c.nvlink;
+            document.getElementById('m-mig').textContent    = c.mig;
+            document.getElementById('m-eula').textContent   = c.eula;
+            document.getElementById('m-role').textContent   = c.role;
+            document.getElementById('m-price').textContent  = c.price;
+
+            const tags = [];
+            if (c.family === 'consumer') tags.push('<span class="badge warn">consumer EULA &mdash; no datacenter</span>');
+            if (c.family === 'workstation') tags.push('<span class="badge ok">workstation EULA</span>');
+            if (c.family === 'datacenter') tags.push('<span class="badge ok">datacenter EULA</span>');
+            if (c.family === 'edge') tags.push('<span class="badge ok">embedded licence</span>');
+            if (c.ecc === 'Yes') tags.push('<span class="badge ok">ECC</span>');
+            if (c.nvlink === 'NVSwitch') tags.push('<span class="badge ok">NVSwitch fabric</span>');
+            else if (c.nvlink === 'Bridge') tags.push('<span class="badge warn">NVLink bridge only</span>');
+            else if (c.nvlink === 'C2C') tags.push('<span class="badge ok">NVLink-C2C unified</span>');
+            else if (c.nvlink === 'No') tags.push('<span class="badge warn">no NVLink</span>');
+            if (c.mig === 'Yes') tags.push('<span class="badge ok">MIG capable</span>');
+
+            document.getElementById('cm-out').innerHTML =
+                '<div><span class="line-label">arch</span> &rarr; <span class="line-val">' + c.arch + '</span> &nbsp; <span class="line-label">die</span> &rarr; <span class="line-val">' + c.die + '</span></div>' +
+                '<div style="margin-top:0.4rem;">' + tags.join(' ') + '</div>' +
+                '<div style="margin-top:0.6rem;color:var(--text-secondary);">' + c.note + '</div>';
+        }
+        document.getElementById('cm-card').addEventListener('change', rec);
+        rec();
+    })();
+    </script>
+
+    <div class="callout">
+        <div class="callout-label">Reading the picker</div>
+        <p>The most informative comparisons are within the same die: pick <em>RTX 4090</em>, then <em>RTX 6000 Ada</em>, then <em>L40</em>, then <em>L40S</em>. All AD102. The differences &mdash; ECC, EULA, FP8 enabled, VRAM, NVLink &mdash; are entirely firmware and PCB choices, not silicon. That's the whole game.</p>
+    </div>
+</section>
+
+<!-- ════════════════════════════════════ Footer ════════════════════════════════════ -->
+<footer class="footer">
+    <p>Part of the <a href="https://github.com/BrendanJamesLynskey/LLMs#nvidia-gpu-architectures">NVIDIA GPU Architectures Series</a></p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;"><a href="https://github.com/BrendanJamesLynskey/LLMs#nvidia-gpu-architectures">Back to Series Index</a></p>
+</footer>
+
+<script>
+    // Smooth scroll for TOC links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // Subtle fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.slide').forEach(slide => {
+        slide.style.opacity = '0';
+        slide.style.transform = 'translateY(30px)';
+        slide.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(slide);
+    });
+</script>
+
+</body>
+</html>
