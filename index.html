@@ -867,7 +867,7 @@
                 <tr><td><strong>Ampere</strong></td><td>GA</td><td>2020&ndash;21</td><td>A100, A40, A30, A10, A2</td><td>Full inference-to-training span; A100 introduced MIG.</td></tr>
                 <tr><td><strong>Ada Lovelace</strong></td><td>AD</td><td>2022&ndash;23</td><td>L40, L40S, L4</td><td><em>"L"</em> replaces <em>"A"</em> mid-arch; reflects Lovelace branding.</td></tr>
                 <tr><td><strong>Hopper</strong></td><td>GH</td><td>2023&ndash;24</td><td>H100, H200, H800, H20</td><td>FP8 + Transformer Engine. H800/H20 are China-only.</td></tr>
-                <tr><td><strong>Blackwell</strong></td><td>GB</td><td>2025&ndash;26</td><td>B100, B200, B300, GB200</td><td>Dual-die package. FP4 (MX-FP4). NVL72 rack as a unit.</td></tr>
+                <tr><td><strong>Blackwell</strong></td><td>GB</td><td>2025&ndash;26</td><td>B100, B200, B300, GB200</td><td>Dual-die package. FP4 (MX-FP4 and NVFP4). NVL72 rack as a unit.</td></tr>
             </tbody>
         </table>
     </div>
@@ -1264,11 +1264,11 @@
                 <tr><th>Card</th><th>Pillar</th><th>VRAM</th><th>ECC</th><th>FP8</th><th>EULA</th><th>TDP</th></tr>
             </thead>
             <tbody>
-                <tr><td>RTX 4080 Super</td><td>Consumer</td><td>16 GB GDDR6X</td><td>No</td><td>No</td><td>GeForce</td><td>320 W</td></tr>
-                <tr><td>RTX 4090</td><td>Consumer</td><td>24 GB GDDR6X</td><td>No</td><td>No</td><td>GeForce</td><td>450 W</td></tr>
-                <tr><td>RTX 6000 Ada</td><td>Workstation</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td>No</td><td>Pro/DC</td><td>300 W</td></tr>
-                <tr><td>L40</td><td>Datacenter</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td>No</td><td>DC</td><td>300 W</td></tr>
-                <tr><td>L40S</td><td>Datacenter</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td><strong>Yes</strong></td><td>DC</td><td>350 W</td></tr>
+                <tr><td>RTX 4080 Super</td><td>Consumer</td><td>16 GB GDDR6X</td><td>No</td><td>Yes (no TE)</td><td>GeForce</td><td>320 W</td></tr>
+                <tr><td>RTX 4090</td><td>Consumer</td><td>24 GB GDDR6X</td><td>No</td><td>Yes (no TE)</td><td>GeForce</td><td>450 W</td></tr>
+                <tr><td>RTX 6000 Ada</td><td>Workstation</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td>Yes</td><td>Pro/DC</td><td>300 W</td></tr>
+                <tr><td>L40</td><td>Datacenter</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td>Yes</td><td>DC</td><td>300 W</td></tr>
+                <tr><td>L40S</td><td>Datacenter</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td><strong>Yes (higher throughput)</strong></td><td>DC</td><td>350 W</td></tr>
             </tbody>
         </table>
     </div>
@@ -1290,7 +1290,7 @@
 
     <div class="callout">
         <div class="callout-label">Buying logic</div>
-        <p>Don't buy the marketing tier &mdash; buy the firmware features you need. If your job needs ECC, NVLink, MIG, or datacenter EULA, those features are gated by SKU choice within the same silicon. If your job needs only single-stream raw throughput, the cheapest card on the right die wins. The L40S vs RTX 6000 Ada example is a good illustration: same AD102 die, same 48 GB ECC, but only the L40S has FP8 enabled (firmware bin difference) &mdash; and for LLM serving in 2025+, that's the deciding feature.</p>
+        <p>Don't buy the marketing tier &mdash; buy the firmware features you need. If your job needs ECC, NVLink, MIG, or datacenter EULA, those features are gated by SKU choice within the same silicon. If your job needs only single-stream raw throughput, the cheapest card on the right die wins. The L40S vs RTX 6000 Ada example is a good illustration: same AD102 die, same 48 GB ECC, both have FP8 tensor cores, but the L40S is the high-clock "Server" bin tuned for inference throughput &mdash; and for LLM serving in 2025+, that throughput uplift is often the deciding feature.</p>
     </div>
 </section>
 
@@ -1325,7 +1325,7 @@
                 <tr><td>R535+</td><td>Hopper FP8 production</td><td>CUDA 12.2; cuBLASLt FP8 GEMMs</td></tr>
                 <tr><td>R550+</td><td>Hopper TMA, thread-block clusters</td><td>CUDA 12.4; full Hopper feature set</td></tr>
                 <tr><td>R555+</td><td>Blackwell preview</td><td>CUDA 12.5; B100/B200 early access</td></tr>
-                <tr><td>R560+</td><td>Blackwell GA</td><td>CUDA 12.6; FP4 / MX-FP4 paths</td></tr>
+                <tr><td>R560+</td><td>Blackwell GA</td><td>CUDA 12.6; FP4 paths (MX-FP4 and NVFP4)</td></tr>
                 <tr><td>R570+</td><td>Blackwell + flash-attn 3 polished</td><td>CUDA 12.7+; production Blackwell</td></tr>
             </tbody>
         </table>
@@ -1343,9 +1343,9 @@
                 <tr><td>sm_75</td><td>Turing</td><td>First Tensor Cores; FP16/INT8</td></tr>
                 <tr><td>sm_80</td><td>A100</td><td>BF16, TF32, async copy, MIG</td></tr>
                 <tr><td>sm_86</td><td>Consumer Ampere (3090)</td><td>BF16, TF32, no MIG</td></tr>
-                <tr><td>sm_89</td><td>Ada (4090, L40S, RTX 6000 Ada)</td><td>FP8 (L40S only enabled in firmware)</td></tr>
+                <tr><td>sm_89</td><td>Ada (4090, L40S, RTX 6000 Ada)</td><td>FP8 tensor cores (all Ada); no Hopper Transformer Engine</td></tr>
                 <tr><td>sm_90</td><td>Hopper (H100, H200)</td><td>FP8 native, TMA, thread-block clusters, DSMEM</td></tr>
-                <tr><td>sm_100</td><td>Datacenter Blackwell (B100, B200)</td><td>FP4 (MX), 5th-gen Tensor Cores, NVLink 5</td></tr>
+                <tr><td>sm_100</td><td>Datacenter Blackwell (B100, B200)</td><td>FP4 (MX-FP4 and NVFP4), 5th-gen Tensor Cores, NVLink 5</td></tr>
                 <tr><td>sm_120</td><td>Consumer Blackwell (RTX 50, RTX Pro 6000 Blackwell)</td><td>FP4, GDDR7</td></tr>
             </tbody>
         </table>
@@ -1461,7 +1461,7 @@ nvidia-smi --query-gpu=compute_cap --format=csv</code></pre>
             '5090':       { name:'RTX 5090 32 GB',         family:'consumer',    vram:32,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'dev/inference', price:'$$$$', arch:'Blackwell', die:'GB202', note:'Consumer flagship. 32 GB GDDR7 at ~1.8 TB/s. Native FP4. Best single-card LLM card you can buy as a consumer.' },
 
             // Workstation
-            'rtx6000ada': { name:'RTX 6000 Ada 48 GB',     family:'workstation', vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Ada',    die:'AD102', note:'AD102 with 48 GB ECC and certified ISV drivers. 70B INT4 or 30B BF16 fits. Datacenter EULA &mdash; legal in any rack. No FP8 unlock (vs L40S).' },
+            'rtx6000ada': { name:'RTX 6000 Ada 48 GB',     family:'workstation', vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Ada',    die:'AD102', note:'AD102 with 48 GB ECC and certified ISV drivers. 70B INT4 or 30B BF16 fits. Datacenter EULA &mdash; legal in any rack. FP8 tensor cores present (as on all Ada); L40S is the higher-throughput "Server" bin.' },
             'rtxpro6000': { name:'RTX Pro 6000 Blackwell 96 GB', family:'workstation', vram:96, ecc:'Yes', nvlink:'No',  mig:'No',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Blackwell', die:'GB202', note:'GB202 with 96 GB GDDR7 ECC &mdash; 4&times; the consumer 5090. 70B BF16 fits comfortably. Native FP4 + workstation EULA &mdash; best non-HBM card you can put in one box.' },
 
             // Datacenter
@@ -1473,8 +1473,8 @@ nvidia-smi --query-gpu=compute_cap --format=csv</code></pre>
             'a100-40':    { name:'A100 40 GB',             family:'datacenter',  vram:40,  ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training',  price:'$$$$', arch:'Ampere',  die:'GA100', note:'The training workhorse 2020&ndash;2023. HBM2e at ~1.6 TB/s (40 GB). MIG capable. Still a strong inference card.' },
             'a100-80':    { name:'A100 80 GB',             family:'datacenter',  vram:80,  ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training',  price:'$$$$', arch:'Ampere',  die:'GA100', note:'The 80 GB SKU added later &mdash; HBM2e at ~2 TB/s. Still in heavy production for inference where H100s are oversubscribed.' },
             'l4':         { name:'L4 24 GB',               family:'datacenter',  vram:24,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$',   arch:'Ada',       die:'AD104', note:'Successor to T4. 72 W single-slot, GDDR6, video engines for streaming. Cloud-scale inference and transcoding.' },
-            'l40':        { name:'L40 48 GB',              family:'datacenter',  vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$$',  arch:'Ada',       die:'AD102', note:'AD102 datacenter card with 48 GB ECC. Visualisation + inference. <strong>FP8 not enabled</strong> in firmware &mdash; that\'s the L40S.' },
-            'l40s':       { name:'L40S 48 GB',             family:'datacenter',  vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$$$', arch:'Ada',       die:'AD102', note:'L40 with FP8 turned on in firmware (the "S" = Server bin). The cheapest datacenter card with FP8. Sweet spot for cost-effective LLM serving without HBM money.' },
+            'l40':        { name:'L40 48 GB',              family:'datacenter',  vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$$',  arch:'Ada',       die:'AD102', note:'AD102 datacenter card with 48 GB ECC. Visualisation + inference. FP8 tensor cores present (as on all Ada); the L40S is the higher-clock "Server" bin tuned for FP8 inference throughput.' },
+            'l40s':       { name:'L40S 48 GB',             family:'datacenter',  vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$$$', arch:'Ada',       die:'AD102', note:'L40 binned higher (the "S" = Server bin) with boosted clocks and ~3&times; FP8 throughput vs L40. Sweet spot for cost-effective LLM serving without HBM money.' },
             'h100p':      { name:'H100 80 GB PCIe',        family:'datacenter',  vram:80,  ecc:'Yes', nvlink:'Bridge', mig:'Yes', eula:'Yes', role:'training/inference', price:'$$$$', arch:'Hopper', die:'GH100', note:'PCIe 350 W variant. Same die, lower clocks, no NVSwitch. Good for single-card servers; for TP across many GPUs use the SXM form factor.' },
             'h100s':      { name:'H100 80 GB SXM',         family:'datacenter',  vram:80,  ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training',  price:'$$$$', arch:'Hopper',  die:'GH100', note:'The 700 W SXM5 variant. HBM3 at 3.35 TB/s. Full NVSwitch fabric on HGX baseboards &mdash; the datacenter training card 2023&ndash;2024.' },
             'h200':       { name:'H200 141 GB SXM',        family:'datacenter',  vram:141, ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training/inference', price:'$$$$', arch:'Hopper', die:'GH100', note:'Same H100 die with HBM3e instead of HBM3 &mdash; 141 GB at ~4.8 TB/s. Massive inference win for large models; same compute as H100.' },
