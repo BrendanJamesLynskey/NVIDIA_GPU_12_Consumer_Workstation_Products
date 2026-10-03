@@ -1462,7 +1462,7 @@ nvidia-smi --query-gpu=compute_cap --format=csv</code></pre>
 
             // Workstation
             'rtx6000ada': { name:'RTX 6000 Ada 48 GB',     family:'workstation', vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Ada',    die:'AD102', note:'AD102 with 48 GB ECC and certified ISV drivers. 70B INT4 or 30B INT8 fits. Datacenter EULA &mdash; legal in any rack. FP8 tensor cores present (as on all Ada); L40S is the higher-throughput "Server" bin.' },
-            'rtxpro6000': { name:'RTX Pro 6000 Blackwell 96 GB', family:'workstation', vram:96, ecc:'Yes', nvlink:'No',  mig:'No',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Blackwell', die:'GB202', note:'GB202 with 96 GB GDDR7 ECC &mdash; 3&times; the consumer 5090. 70B FP8 fits comfortably. Native FP4 + workstation EULA &mdash; best non-HBM card you can put in one box.' },
+            'rtxpro6000': { name:'RTX Pro 6000 Blackwell 96 GB', family:'workstation', vram:96, ecc:'Yes', nvlink:'No',  mig:'Yes (up to 4)',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Blackwell', die:'GB202', note:'GB202 with 96 GB GDDR7 ECC &mdash; 3&times; the consumer 5090. 70B FP8 fits comfortably. Native FP4 + workstation EULA &mdash; best non-HBM card you can put in one box.' },
 
             // Datacenter
             't4':         { name:'T4 16 GB',               family:'datacenter',  vram:16,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$',    arch:'Turing',    die:'TU104', note:'70 W single-slot, the original cloud inference workhorse 2019&ndash;2023. Largely retired but still in service for small-model fleets.' },
