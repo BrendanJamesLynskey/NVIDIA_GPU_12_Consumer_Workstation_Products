@@ -817,7 +817,7 @@
         </div>
         <div class="diagram-panel accent-border">
             <h4>Workstation (RTX Pro)</h4>
-            <p>Formerly <strong>Quadro</strong> (1999&ndash;2020), then <strong>"NVIDIA RTX"</strong> (2020&ndash;2023, e.g. RTX A6000, RTX 6000 Ada), now <strong>"RTX Pro"</strong> (2024+). ECC GDDR, certified ISV drivers (Autodesk, SolidWorks, Adobe, ANSYS, DaVinci), full FP64 path on professional models, datacenter-licensed. Often offered with NVLink bridges.</p>
+            <p>Formerly <strong>Quadro</strong> (1999&ndash;2020), then <strong>"NVIDIA RTX"</strong> (2020&ndash;2023, e.g. RTX A6000, RTX 6000 Ada), now <strong>"RTX Pro"</strong> (2025+). ECC GDDR, certified ISV drivers (Autodesk, SolidWorks, Adobe, ANSYS, DaVinci), full FP64 path on professional models, datacenter-licensed. Often offered with NVLink bridges.</p>
         </div>
         <div class="diagram-panel accent-border">
             <h4>Datacenter (A/H/L/B)</h4>
@@ -932,7 +932,7 @@
                 <tr><th>Generation</th><th>Top SKU</th><th>Arch</th><th>VRAM</th><th>Why it mattered for AI</th></tr>
             </thead>
             <tbody>
-                <tr><td>2016</td><td>GTX 1080 Ti</td><td>Pascal (GP102)</td><td>11 GB GDDR5X</td><td>First "everyone has one" CUDA card; FP32-only.</td></tr>
+                <tr><td>2017</td><td>GTX 1080 Ti</td><td>Pascal (GP102)</td><td>11 GB GDDR5X</td><td>First "everyone has one" CUDA card; FP32-only.</td></tr>
                 <tr><td>2018</td><td>RTX 2080 Ti</td><td>Turing (TU102)</td><td>11 GB GDDR6</td><td>First RT cores and first <strong>Tensor Cores</strong> in consumer hardware.</td></tr>
                 <tr><td>2020</td><td>RTX 3090 / 3090 Ti</td><td>Ampere (GA102)</td><td>24 GB GDDR6X</td><td>24 GB became the de-facto LLM hobbyist card; last consumer NVLink bridge.</td></tr>
                 <tr><td>2022</td><td>RTX 4090</td><td>Ada (AD102)</td><td>24 GB GDDR6X</td><td>~2&times; perf/W of 3090. <em>NVLink removed</em>; multi-GPU is PCIe-only.</td></tr>
@@ -1000,7 +1000,7 @@
         <div class="diagram-arrow">&darr;</div>
         <div class="diagram-box dim">2020&ndash;2023 &mdash; <strong>"NVIDIA RTX"</strong> (RTX A6000 Ampere, RTX 6000 Ada)</div>
         <div class="diagram-arrow">&darr;</div>
-        <div class="diagram-box accent">2024+ &mdash; <strong>RTX Pro</strong> (RTX Pro 6000 Blackwell, RTX Pro 5000/4500/4000)</div>
+        <div class="diagram-box accent">2025+ &mdash; <strong>RTX Pro</strong> (RTX Pro 6000 Blackwell, RTX Pro 5000/4500/4000)</div>
     </div>
 
     <h3>Flagship by generation</h3>
@@ -1010,7 +1010,7 @@
                 <tr><th>Card</th><th>Die</th><th>VRAM</th><th>NVLink</th><th>FP64</th><th>Year</th></tr>
             </thead>
             <tbody>
-                <tr><td>Quadro RTX 8000</td><td>TU102 (Turing)</td><td>48 GB GDDR6 ECC</td><td>Bridge</td><td>1/2 rate</td><td>2018</td></tr>
+                <tr><td>Quadro RTX 8000</td><td>TU102 (Turing)</td><td>48 GB GDDR6 ECC</td><td>Bridge</td><td>1/32 rate</td><td>2018</td></tr>
                 <tr><td>RTX A6000</td><td>GA102 (Ampere)</td><td>48 GB GDDR6 ECC</td><td>Bridge</td><td>1/64 rate</td><td>2020</td></tr>
                 <tr><td>RTX 6000 Ada</td><td>AD102 (Ada)</td><td>48 GB GDDR6 ECC</td><td>None</td><td>1/64 rate</td><td>2022</td></tr>
                 <tr><td>RTX Pro 6000 Blackwell</td><td>GB202 (Blackwell)</td><td><strong>96 GB GDDR7 ECC</strong></td><td>None</td><td>1/64 rate</td><td>2025</td></tr>
@@ -1021,7 +1021,7 @@
     <h3>What makes a card "Pro"</h3>
     <ul>
         <li><strong>ECC GDDR.</strong> Single-bit errors detected and corrected; double-bit errors flagged. Costs ~6% of nominal capacity.</li>
-        <li><strong>Larger VRAM.</strong> Same die as the consumer flagship but with twice or four times the memory: 24 GB on a 4090 vs 48 GB on RTX 6000 Ada (both AD102), 32 GB on 5090 vs 96 GB on RTX Pro 6000 Blackwell (both GB202).</li>
+        <li><strong>Larger VRAM.</strong> Same die as the consumer flagship but with twice or three times the memory: 24 GB on a 4090 vs 48 GB on RTX 6000 Ada (both AD102), 32 GB on 5090 vs 96 GB on RTX Pro 6000 Blackwell (both GB202).</li>
         <li><strong>Certified ISV drivers.</strong> Validated against Autodesk Maya/3ds Max, Dassault SolidWorks/CATIA, PTC Creo, Adobe Premiere/After Effects, ANSYS, DaVinci Resolve. Bug fixes go through QA against those apps.</li>
         <li><strong>NVIDIA Studio + RTX Enterprise driver branches.</strong> Long-life-support, slower cadence than the gaming GeForce driver.</li>
         <li><strong>Datacenter EULA permitted.</strong> No "no datacenter" clause &mdash; this is a workstation/datacenter card.</li>
@@ -1044,7 +1044,7 @@
         <div class="diagram-panel accent-border">
             <h4>Top compute (HBM)</h4>
             <ul>
-                <li><strong>A100</strong> 40/80 GB HBM2e</li>
+                <li><strong>A100</strong> 40 GB HBM2 / 80 GB HBM2e</li>
                 <li><strong>H100</strong> 80 GB HBM3</li>
                 <li><strong>H200</strong> 141 GB HBM3e</li>
                 <li><strong>B100</strong> 192 GB HBM3e</li>
@@ -1103,10 +1103,10 @@
 
     <h3>Timeline of the rules</h3>
     <ul>
-        <li><strong>October 2022.</strong> First BIS rule. Bandwidth threshold: chips with bidirectional interconnect &gt; 600 GB/s and aggregate FLOPS above ~4800 TFLOPS-equivalent need a licence to ship to China. A100 and H100 caught.</li>
+        <li><strong>October 2022.</strong> First BIS rule. Bandwidth threshold: chips with bidirectional interconnect &gt; 600 GB/s and a &ldquo;total processing performance&rdquo; (TPP = 2 &times; MAC rate &times; bit length) of 4800 or more need a licence to ship to China. A100 and H100 caught.</li>
         <li><strong>NVIDIA response (Nov 2022).</strong> A800 &mdash; an A100 with NVLink slowed from 600 GB/s to 400 GB/s. Same compute. Compliant. H800 &mdash; H100 with NVLink slowed from 900 GB/s to 400 GB/s. Same FP8 throughput.</li>
         <li><strong>October 2023.</strong> Tighter rule. Now constrains "performance density" (FLOPS / mm²) <em>and</em> total compute. A800/H800 now also banned. New rule explicitly anti-circumvention.</li>
-        <li><strong>NVIDIA response (Dec 2023).</strong> H20 &mdash; an H100 die with most SMs disabled, FP8 throughput cut to ~4 PFLOPS, but full <strong>96 GB HBM3</strong> retained. Counter-intuitively a great pure-inference card because LLM decode is bandwidth-bound, not compute-bound.</li>
+        <li><strong>NVIDIA response (Dec 2023).</strong> H20 &mdash; an H100 die with most SMs disabled, FP8 throughput cut to ~0.3 PFLOPS (296 TFLOPS dense, vs ~1.98 PFLOPS on H100 SXM), but full <strong>96 GB HBM3</strong> retained. Counter-intuitively a great pure-inference card because LLM decode is bandwidth-bound, not compute-bound.</li>
         <li><strong>2025+.</strong> Blackwell-era B20/B30/B300A variants pending US rule clarifications; specifications change as the export licence regime evolves.</li>
     </ul>
 
@@ -1118,7 +1118,7 @@
             <tbody>
                 <tr><td><strong>A800</strong></td><td>A100 80 GB</td><td>NVLink 600 &rarr; 400 GB/s</td><td>Compute, HBM2e bandwidth</td><td>Training in China, 2022&ndash;2023</td></tr>
                 <tr><td><strong>H800</strong></td><td>H100 SXM</td><td>NVLink 900 &rarr; 400 GB/s</td><td>FP8 throughput, HBM3 bandwidth</td><td>Training in China, 2023</td></tr>
-                <tr><td><strong>H20</strong></td><td>H100 die, fewer SMs</td><td>FP8 ~16x cut to ~4 PFLOPS</td><td>96 GB HBM3, full bandwidth</td><td>LLM <em>inference</em> in China, 2024+</td></tr>
+                <tr><td><strong>H20</strong></td><td>H100 die, fewer SMs</td><td>FP8 ~6.7x cut to 296 TFLOPS (dense)</td><td>96 GB HBM3, full bandwidth</td><td>LLM <em>inference</em> in China, 2024+</td></tr>
                 <tr><td><strong>L20 / L2</strong></td><td>L40 / L4</td><td>SM count + clocks</td><td>VRAM, video engines</td><td>Visualisation / inference, China</td></tr>
             </tbody>
         </table>
@@ -1144,7 +1144,7 @@
         <div class="diagram-panel accent-border">
             <h4>Jetson (the dev module)</h4>
             <p>SoMs built around Tegra. Officially supported through JetPack (Linux for Tegra + CUDA + cuDNN + TensorRT for ARM). Sold as developer kits and as production modules.</p>
-            <p>Current line: <strong>Orin</strong> (Ampere). Next: <strong>Thor</strong> (Blackwell), 2025+, ~1500 TOPS FP4 for robotics + autonomous vehicles.</p>
+            <p>Current line: <strong>Orin</strong> (Ampere). Next: <strong>Thor</strong> (Blackwell), 2025+, up to 2070 TFLOPS FP4 (sparse) for robotics + autonomous vehicles.</p>
         </div>
     </div>
 
@@ -1155,7 +1155,7 @@
                 <tr><th>Module</th><th>GPU</th><th>RAM</th><th>AI perf</th><th>TDP</th><th>Price</th></tr>
             </thead>
             <tbody>
-                <tr><td>Jetson Orin Nano (8 GB)</td><td>Ampere, 1024 CUDA / 32 Tensor</td><td>8 GB LPDDR5</td><td>40 TOPS (Super)</td><td>15 W</td><td>~$200</td></tr>
+                <tr><td>Jetson Orin Nano (8 GB)</td><td>Ampere, 1024 CUDA / 32 Tensor</td><td>8 GB LPDDR5</td><td>40 TOPS (67 TOPS Super)</td><td>15 W</td><td>~$200</td></tr>
                 <tr><td>Jetson Orin NX 8 GB</td><td>Ampere, 1024 CUDA</td><td>8 GB LPDDR5</td><td>70 TOPS</td><td>10&ndash;20 W</td><td>~$400</td></tr>
                 <tr><td>Jetson Orin NX 16 GB</td><td>Ampere, 1024 CUDA</td><td>16 GB LPDDR5</td><td>100 TOPS</td><td>10&ndash;25 W</td><td>~$600</td></tr>
                 <tr><td>Jetson AGX Orin 32 GB</td><td>Ampere, 1792 CUDA</td><td>32 GB LPDDR5</td><td>200 TOPS</td><td>15&ndash;40 W</td><td>~$1,500</td></tr>
@@ -1264,7 +1264,7 @@
                 <tr><th>Card</th><th>Pillar</th><th>VRAM</th><th>ECC</th><th>FP8</th><th>EULA</th><th>TDP</th></tr>
             </thead>
             <tbody>
-                <tr><td>RTX 4080 Super</td><td>Consumer</td><td>16 GB GDDR6X</td><td>No</td><td>Yes (no TE)</td><td>GeForce</td><td>320 W</td></tr>
+                <tr><td>RTX 4080 Super <em>(actually AD103)</em></td><td>Consumer</td><td>16 GB GDDR6X</td><td>No</td><td>Yes (no TE)</td><td>GeForce</td><td>320 W</td></tr>
                 <tr><td>RTX 4090</td><td>Consumer</td><td>24 GB GDDR6X</td><td>No</td><td>Yes (no TE)</td><td>GeForce</td><td>450 W</td></tr>
                 <tr><td>RTX 6000 Ada</td><td>Workstation</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td>Yes</td><td>Pro/DC</td><td>300 W</td></tr>
                 <tr><td>L40</td><td>Datacenter</td><td>48 GB GDDR6 ECC</td><td>Yes</td><td>Yes</td><td>DC</td><td>300 W</td></tr>
@@ -1325,8 +1325,8 @@
                 <tr><td>R535+</td><td>Hopper FP8 production</td><td>CUDA 12.2; cuBLASLt FP8 GEMMs</td></tr>
                 <tr><td>R550+</td><td>Hopper TMA, thread-block clusters</td><td>CUDA 12.4; full Hopper feature set</td></tr>
                 <tr><td>R555+</td><td>Blackwell preview</td><td>CUDA 12.5; B100/B200 early access</td></tr>
-                <tr><td>R560+</td><td>Blackwell GA</td><td>CUDA 12.6; FP4 paths (MX-FP4 and NVFP4)</td></tr>
-                <tr><td>R570+</td><td>Blackwell + flash-attn 3 polished</td><td>CUDA 12.7+; production Blackwell</td></tr>
+                <tr><td>R560+</td><td>Pre-Blackwell</td><td>CUDA 12.6; no sm_100/sm_120 target yet</td></tr>
+                <tr><td>R570+</td><td>Blackwell + flash-attn 3 polished</td><td>CUDA 12.8+; first toolkit with sm_100/sm_120 (Blackwell), FP4 paths (MX-FP4 and NVFP4)</td></tr>
             </tbody>
         </table>
     </div>
@@ -1340,7 +1340,7 @@
                 <tr><th>CC</th><th>Arch</th><th>What unlocks at this CC</th></tr>
             </thead>
             <tbody>
-                <tr><td>sm_75</td><td>Turing</td><td>First Tensor Cores; FP16/INT8</td></tr>
+                <tr><td>sm_75</td><td>Turing</td><td>2nd-gen Tensor Cores (first were Volta, sm_70); adds INT8/INT4</td></tr>
                 <tr><td>sm_80</td><td>A100</td><td>BF16, TF32, async copy, MIG</td></tr>
                 <tr><td>sm_86</td><td>Consumer Ampere (3090)</td><td>BF16, TF32, no MIG</td></tr>
                 <tr><td>sm_89</td><td>Ada (4090, L40S, RTX 6000 Ada)</td><td>FP8 tensor cores (all Ada); no Hopper Transformer Engine</td></tr>
@@ -1451,18 +1451,18 @@ nvidia-smi --query-gpu=compute_cap --format=csv</code></pre>
             '3060':       { name:'RTX 3060 12 GB',         family:'consumer',    vram:12,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming/dev',  price:'$',    arch:'Ampere',    die:'GA106', note:'Cheap entry into CUDA. Will run 7B q4 LLMs comfortably; 13B is tight at 4-bit. Best as a learning card or a small home inference node.' },
             '3070':       { name:'RTX 3070 8 GB',          family:'consumer',    vram:8,   ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming',      price:'$',    arch:'Ampere',    die:'GA104', note:'8 GB is tight for modern LLMs &mdash; 7B q4 fits, anything bigger is painful. Solid gaming card.' },
             '3080':       { name:'RTX 3080 10 GB',         family:'consumer',    vram:10,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming/dev',  price:'$$',   arch:'Ampere',    die:'GA102', note:'GA102 die but cut-down VRAM. Great gaming, marginal LLM. The 12 GB variant gives more headroom.' },
-            '3090':       { name:'RTX 3090 24 GB',         family:'consumer',    vram:24,  ecc:'No',  nvlink:'Bridge', mig:'No',  eula:'No',  role:'dev/inference', price:'$$', arch:'Ampere',    die:'GA102', note:'The hobbyist LLM card. 24 GB at GDDR6X bandwidth runs 13B at FP16 or 30B at INT4. Last GeForce with NVLink &mdash; pair two for 48 GB pool.' },
+            '3090':       { name:'RTX 3090 24 GB',         family:'consumer',    vram:24,  ecc:'No',  nvlink:'Bridge', mig:'No',  eula:'No',  role:'dev/inference', price:'$$', arch:'Ampere',    die:'GA102', note:'The hobbyist LLM card. 24 GB at GDDR6X bandwidth runs 13B at INT8 or 30B at INT4. Last GeForce with NVLink &mdash; pair two for 48 GB pool.' },
             '4060':       { name:'RTX 4060 8 GB',          family:'consumer',    vram:8,   ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming',      price:'$',    arch:'Ada',       die:'AD107', note:'Entry Ada. 8 GB caps you at 7B q4 LLMs. Efficient at gaming TDP but a poor LLM choice today.' },
             '4070':       { name:'RTX 4070 12 GB',         family:'consumer',    vram:12,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming/dev',  price:'$$',   arch:'Ada',       die:'AD104', note:'Mid Ada. 12 GB fits 13B q4 with KV-cache headroom. A reasonable entry-level dev card if you don\'t need pro features.' },
             '4080':       { name:'RTX 4080 16 GB',         family:'consumer',    vram:16,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'dev',         price:'$$$',  arch:'Ada',       die:'AD103', note:'Strong Ada single-card; 16 GB allows up to ~24B INT4. No NVLink &mdash; multi-card scaling is PCIe-only.' },
             '4090':       { name:'RTX 4090 24 GB',         family:'consumer',    vram:24,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'dev/inference', price:'$$$', arch:'Ada',     die:'AD102', note:'Consumer flagship. 24 GB GDDR6X at 1 TB/s gives the best single-stream tok/s on consumer hardware. No NVLink &mdash; for multi-card stick to data parallelism.' },
             '5070':       { name:'RTX 5070 12 GB',         family:'consumer',    vram:12,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'gaming/dev',  price:'$$',   arch:'Blackwell', die:'GB205', note:'Mid Blackwell. GDDR7 bandwidth jump; 12 GB still caps you at smaller LLMs. FP4 path comes through here.' },
-            '5080':       { name:'RTX 5080 16 GB',         family:'consumer',    vram:16,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'dev',         price:'$$$',  arch:'Blackwell', die:'GB203', note:'Enthusiast Blackwell with FP4 tensor cores. 16 GB GDDR7 covers 14B BF16 or 30B INT4.' },
+            '5080':       { name:'RTX 5080 16 GB',         family:'consumer',    vram:16,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'dev',         price:'$$$',  arch:'Blackwell', die:'GB203', note:'Enthusiast Blackwell with FP4 tensor cores. 16 GB GDDR7 covers 14B INT8 or 30B INT4.' },
             '5090':       { name:'RTX 5090 32 GB',         family:'consumer',    vram:32,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'No',  role:'dev/inference', price:'$$$$', arch:'Blackwell', die:'GB202', note:'Consumer flagship. 32 GB GDDR7 at ~1.8 TB/s. Native FP4. Best single-card LLM card you can buy as a consumer.' },
 
             // Workstation
-            'rtx6000ada': { name:'RTX 6000 Ada 48 GB',     family:'workstation', vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Ada',    die:'AD102', note:'AD102 with 48 GB ECC and certified ISV drivers. 70B INT4 or 30B BF16 fits. Datacenter EULA &mdash; legal in any rack. FP8 tensor cores present (as on all Ada); L40S is the higher-throughput "Server" bin.' },
-            'rtxpro6000': { name:'RTX Pro 6000 Blackwell 96 GB', family:'workstation', vram:96, ecc:'Yes', nvlink:'No',  mig:'No',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Blackwell', die:'GB202', note:'GB202 with 96 GB GDDR7 ECC &mdash; 4&times; the consumer 5090. 70B BF16 fits comfortably. Native FP4 + workstation EULA &mdash; best non-HBM card you can put in one box.' },
+            'rtx6000ada': { name:'RTX 6000 Ada 48 GB',     family:'workstation', vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Ada',    die:'AD102', note:'AD102 with 48 GB ECC and certified ISV drivers. 70B INT4 or 30B INT8 fits. Datacenter EULA &mdash; legal in any rack. FP8 tensor cores present (as on all Ada); L40S is the higher-throughput "Server" bin.' },
+            'rtxpro6000': { name:'RTX Pro 6000 Blackwell 96 GB', family:'workstation', vram:96, ecc:'Yes', nvlink:'No',  mig:'No',  eula:'Yes', role:'dev/inference', price:'$$$$', arch:'Blackwell', die:'GB202', note:'GB202 with 96 GB GDDR7 ECC &mdash; 3&times; the consumer 5090. 70B FP8 fits comfortably. Native FP4 + workstation EULA &mdash; best non-HBM card you can put in one box.' },
 
             // Datacenter
             't4':         { name:'T4 16 GB',               family:'datacenter',  vram:16,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$',    arch:'Turing',    die:'TU104', note:'70 W single-slot, the original cloud inference workhorse 2019&ndash;2023. Largely retired but still in service for small-model fleets.' },
@@ -1470,11 +1470,11 @@ nvidia-smi --query-gpu=compute_cap --format=csv</code></pre>
             'a10':        { name:'A10 24 GB',              family:'datacenter',  vram:24,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$',   arch:'Ampere',    die:'GA102', note:'Single-slot 150 W datacenter card on GA102. Great for VDI + medium inference workloads where you can\'t spend on H100s.' },
             'a30':        { name:'A30 24 GB',              family:'datacenter',  vram:24,  ecc:'Yes', nvlink:'No',     mig:'Yes', eula:'Yes', role:'inference',   price:'$$',   arch:'Ampere',    die:'GA100', note:'GA100-derived with HBM2 and MIG. PCIe 165 W. Often forgotten but a decent multi-tenant inference partition.' },
             'a40':        { name:'A40 48 GB',              family:'datacenter',  vram:48,  ecc:'Yes', nvlink:'Bridge', mig:'No',  eula:'Yes', role:'inference',   price:'$$$',  arch:'Ampere',    die:'GA102', note:'GA102 with 48 GB ECC. Common in VDI + visualisation roles. Effectively the datacenter A6000.' },
-            'a100-40':    { name:'A100 40 GB',             family:'datacenter',  vram:40,  ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training',  price:'$$$$', arch:'Ampere',  die:'GA100', note:'The training workhorse 2020&ndash;2023. HBM2e at ~1.6 TB/s (40 GB). MIG capable. Still a strong inference card.' },
+            'a100-40':    { name:'A100 40 GB',             family:'datacenter',  vram:40,  ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training',  price:'$$$$', arch:'Ampere',  die:'GA100', note:'The training workhorse 2020&ndash;2023. HBM2 at ~1.6 TB/s (40 GB). MIG capable. Still a strong inference card.' },
             'a100-80':    { name:'A100 80 GB',             family:'datacenter',  vram:80,  ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training',  price:'$$$$', arch:'Ampere',  die:'GA100', note:'The 80 GB SKU added later &mdash; HBM2e at ~2 TB/s. Still in heavy production for inference where H100s are oversubscribed.' },
             'l4':         { name:'L4 24 GB',               family:'datacenter',  vram:24,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$',   arch:'Ada',       die:'AD104', note:'Successor to T4. 72 W single-slot, GDDR6, video engines for streaming. Cloud-scale inference and transcoding.' },
             'l40':        { name:'L40 48 GB',              family:'datacenter',  vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$$',  arch:'Ada',       die:'AD102', note:'AD102 datacenter card with 48 GB ECC. Visualisation + inference. FP8 tensor cores present (as on all Ada); the L40S is the higher-clock "Server" bin tuned for FP8 inference throughput.' },
-            'l40s':       { name:'L40S 48 GB',             family:'datacenter',  vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$$$', arch:'Ada',       die:'AD102', note:'L40 binned higher (the "S" = Server bin) with boosted clocks and ~3&times; FP8 throughput vs L40. Sweet spot for cost-effective LLM serving without HBM money.' },
+            'l40s':       { name:'L40S 48 GB',             family:'datacenter',  vram:48,  ecc:'Yes', nvlink:'No',     mig:'No',  eula:'Yes', role:'inference',   price:'$$$$', arch:'Ada',       die:'AD102', note:'L40 binned higher (the "S" = Server bin) with boosted clocks and ~2&times; FP8 throughput vs L40 (733 vs 362 TFLOPS dense). Sweet spot for cost-effective LLM serving without HBM money.' },
             'h100p':      { name:'H100 80 GB PCIe',        family:'datacenter',  vram:80,  ecc:'Yes', nvlink:'Bridge', mig:'Yes', eula:'Yes', role:'training/inference', price:'$$$$', arch:'Hopper', die:'GH100', note:'PCIe 350 W variant. Same die, lower clocks, no NVSwitch. Good for single-card servers; for TP across many GPUs use the SXM form factor.' },
             'h100s':      { name:'H100 80 GB SXM',         family:'datacenter',  vram:80,  ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training',  price:'$$$$', arch:'Hopper',  die:'GH100', note:'The 700 W SXM5 variant. HBM3 at 3.35 TB/s. Full NVSwitch fabric on HGX baseboards &mdash; the datacenter training card 2023&ndash;2024.' },
             'h200':       { name:'H200 141 GB SXM',        family:'datacenter',  vram:141, ecc:'Yes', nvlink:'NVSwitch', mig:'Yes', eula:'Yes', role:'training/inference', price:'$$$$', arch:'Hopper', die:'GH100', note:'Same H100 die with HBM3e instead of HBM3 &mdash; 141 GB at ~4.8 TB/s. Massive inference win for large models; same compute as H100.' },
@@ -1487,7 +1487,7 @@ nvidia-smi --query-gpu=compute_cap --format=csv</code></pre>
             'orin-agx':   { name:'Jetson AGX Orin 64 GB',  family:'edge',        vram:64,  ecc:'No',  nvlink:'No',     mig:'No',  eula:'Yes', role:'edge',        price:'$$$',  arch:'Ampere',    die:'Tegra Orin', note:'60 W edge AI module. 64 GB unified at ~204 GB/s &mdash; more memory than a 4090. Bandwidth-bound but fits 30B INT4. Robotics + autonomous compute.' },
 
             // Workstation appliance
-            'spark':      { name:'DGX Spark (GB10) 128 GB', family:'workstation', vram:128, ecc:'Yes', nvlink:'C2C',   mig:'No',  eula:'Yes', role:'dev',         price:'$$$',  arch:'Blackwell', die:'GB10', note:'Grace-Blackwell desktop appliance. 128 GB unified LPDDR5x at ~273 GB/s with NVLink-C2C to ARM CPU. The largest "local" model surface available without a server rack.' }
+            'spark':      { name:'DGX Spark (GB10) 128 GB', family:'workstation', vram:128, ecc:'Yes', nvlink:'C2C',   mig:'No',  eula:'Yes', role:'dev',         price:'$$$',  arch:'Blackwell', die:'GB10', note:'Grace-Blackwell desktop appliance. 128 GB unified LPDDR5x at ~273 GB/s with NVLink-C2C to ARM CPU. One of the largest "local" model surfaces without a server rack (a Mac Studio M3 Ultra goes to 512 GB unified).' }
         };
 
         const families = {
